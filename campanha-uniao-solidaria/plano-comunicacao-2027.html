@@ -1,0 +1,1133 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plano de Comunicação 2027 | Campanha União Solidária</title>
+<meta name="description" content="Plano de Comunicação 2027 da Campanha União Solidária: 10 anos, meta de R$ 10 milhões." />
+<style>
+  @font-face{font-family:"Roboto Slab";src:url("fonts/RobotoSlab-Bold.ttf") format("truetype");font-weight:700;font-style:normal}
+  @font-face{font-family:"Inter";src:url("fonts/Inter-Regular.ttf") format("truetype");font-weight:400;font-style:normal}
+  @font-face{font-family:"Inter";src:url("fonts/Inter-Bold.ttf") format("truetype");font-weight:700;font-style:normal}
+
+  :root{
+    --bg:#262626;
+    --panel:#2f2f2f;
+    --panel-2:#393939;
+    --line:#4b4b46;
+    --text:#f6f6f1;
+    --muted:#bdbdb2;
+    --lime:#BCD145;
+    --lime-light:#e6f29a;
+    --green:#85BE0D;
+    --gold:#D89838;
+    --ink:#232323;
+    --deep:#33480a;
+    --yellow:#E8DD00;
+    --orange:#F06A41;
+    --red:#E7191F;
+    --sans:Inter,Arial,sans-serif;
+    --display:"Roboto Slab",Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:#000;color:var(--text)}
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+  .ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--lime)}
+  .eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(216,152,56,.28)}
+  .lime .eyebrow{color:var(--deep)}
+  .lime .eyebrow::before{background:var(--ink);box-shadow:0 0 0 3px rgba(35,35,35,.2)}
+
+  .s-title{font-size:46px;max-width:1100px;margin-bottom:14px}
+  .s-title .hi{color:var(--lime)}
+  .lime .s-title .hi{color:var(--deep)}
+  .s-lead{font-size:20px;line-height:1.5;color:var(--muted);max-width:900px}
+  .lime .s-lead{color:#2f3a0c}
+  .small{font-size:12.5px;line-height:1.45;color:var(--muted)}
+
+  /* ---------- DECK ENGINE ---------- */
+  .deck{position:fixed;inset:0;background:#000;overflow:hidden}
+  #stage{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform-origin:center center}
+  .slide{position:absolute;inset:0;width:1280px;height:720px;display:none;flex-direction:column;
+    padding:50px 72px 48px;background:var(--bg);overflow:hidden}
+  .slide.alt{background:var(--panel)}
+  /* fundo verde: #BCD145 com luz no centro e o bokeh do KV no topo */
+  .slide.lime{color:var(--ink);background:var(--lime) url("img/bg-lime.jpg") center/cover no-repeat}
+  .slide.lime.bg-capa{background-image:url("img/bg-lime-capa.jpg")}
+  .slide.lime.bg-fim{background-image:url("img/bg-lime-fim.jpg")}
+  .slide.lime::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:url("img/bokeh-overlay.png") center top/cover no-repeat;opacity:.85}
+  .slide.active{display:flex}
+  .slide > *{position:relative;z-index:1}
+  .slide > .fx{position:absolute;z-index:0;pointer-events:none}
+  .slide-foot{position:absolute !important;left:72px;right:72px;bottom:18px;display:flex;justify-content:space-between;
+    font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;opacity:.8}
+  .lime .slide-foot{color:#2f3a0c}
+
+  .deck-controls{position:fixed;left:0;right:0;bottom:12px;display:flex;align-items:center;justify-content:center;gap:16px;z-index:10}
+  .deck-controls button{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,255,255,.3);background:rgba(35,35,35,.75);color:#fff;font-family:var(--display);font-size:18px;cursor:pointer}
+  .deck-controls button:hover{border-color:var(--lime)}
+  #counter{font-size:12px;font-weight:700;color:var(--muted);min-width:60px;text-align:center}
+  .gear-btn{display:grid;place-items:center}
+  .gear-btn svg{width:18px;height:18px;display:block}
+  .gear-panel{position:fixed;left:50%;bottom:62px;transform:translateX(-50%);background:rgba(35,35,35,.97);
+    border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:300px;z-index:30;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+  .gear-panel[hidden]{display:none}
+  .gear-panel-title{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px}
+  .gear-toggle{display:flex;align-items:center;gap:9px;font-size:12.5px;color:#fff;padding:6px 0;cursor:pointer;white-space:nowrap}
+  .gear-toggle input{width:15px;height:15px;accent-color:var(--lime);cursor:pointer;flex:none}
+  .ch-toast{position:fixed;left:50%;bottom:68px;transform:translateX(-50%) translateY(12px);opacity:0;background:rgba(35,35,35,.95);color:#fff;
+    border:1px solid var(--lime);border-radius:10px;padding:10px 18px;font-size:12px;z-index:20;pointer-events:none;transition:opacity .2s,transform .2s}
+  .ch-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .slide.ch-hidden{display:none !important}
+
+  /* ---------- STATUS CHIPS ---------- */
+  .st{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 9px;border-radius:99px;white-space:nowrap}
+  .st.mantem{background:var(--lime);color:var(--ink)}
+  .st.ajusta{background:var(--gold);color:var(--ink)}
+  .st.novo{background:#fff;color:var(--ink)}
+  .st.pausa{background:var(--red);color:#fff}
+  .st.conf{background:var(--orange);color:var(--ink)}
+  .eyebrow .st{margin-left:6px}
+
+  /* ---------- IMAGEM PROVISÓRIA ---------- */
+  .img-slot{position:relative;border-radius:20px;overflow:hidden;background:#444;box-shadow:0 14px 30px rgba(0,0,0,.3)}
+  .img-slot img{width:100%;height:100%;object-fit:cover;display:block}
+  .img-slot::after{content:"imagem provisória";position:absolute;left:12px;top:12px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+    background:rgba(35,35,35,.8);color:#fff;padding:4px 9px;border-radius:99px}
+  .lime .img-slot{box-shadow:0 14px 30px rgba(35,35,35,.25)}
+  .img-slot::after,.tile::after{display:none !important}
+
+  /* ---------- LOGOS EM LINHA (REALIZAÇÃO / APOIO) ---------- */
+  .brandline{display:inline-flex;align-items:flex-start;gap:36px;align-self:flex-start;background:rgba(35,35,35,.9);border-radius:18px;padding:14px 26px 16px;box-shadow:0 12px 26px rgba(35,35,35,.25)}
+  .brandline .grp{display:flex;flex-direction:column}
+  .brandline .grp small{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;color:var(--lime-light)}
+  .brandline .logos{display:flex;align-items:center;gap:28px;height:48px}
+  .brandline img{display:block;width:128px;height:auto}
+  .brandline img.dx{width:104px}
+
+  /* ---------- CAPA ---------- */
+  .slide > .fx.edge-r{inset:0;width:100%;height:100%;object-fit:cover}
+  .slide > .fx.edge-l{inset:0;width:100%;height:100%;object-fit:cover}
+  .cover{display:grid;grid-template-columns:1fr 470px;gap:30px;align-items:center;flex:1;min-height:0}
+  .cover .logo{width:290px;display:block;margin-bottom:34px;filter:drop-shadow(0 1px 2px rgba(35,35,35,.6)) drop-shadow(0 4px 8px rgba(35,35,35,.3))}
+  .cover h1{font-size:64px;line-height:1.04;margin:0 0 20px;color:var(--ink)}
+  .cover h1 .year{display:table;margin-top:12px;background:var(--ink);color:var(--lime-light);padding:0 22px 6px;border-radius:16px}
+  .cover .lead{font-size:20px;line-height:1.45;font-weight:700;color:var(--ink);max-width:520px}
+  .cover .chips{display:flex;gap:10px;margin-top:20px}
+  .cover .chips span{font-size:13px;font-weight:700;border:2px solid var(--ink);border-radius:99px;padding:7px 16px;color:var(--ink)}
+  .cover-art{position:relative;display:flex;justify-content:center;align-items:center;height:100%}
+  .cover-art::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 68%)}
+  .cover-art img{position:relative;height:470px;width:auto;display:block;filter:drop-shadow(0 22px 28px rgba(35,35,35,.4))}
+
+  /* ---------- META ---------- */
+  .meta-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;margin-top:20px;flex:1;min-height:0}
+  .meta-big{border:1px solid var(--line);background:var(--panel-2);border-radius:18px;padding:26px 30px;display:flex;flex-direction:column;justify-content:center}
+  .meta-big .lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+  .meta-big .num{font-family:var(--display);font-size:78px;line-height:1.05;color:var(--lime);margin:6px 0 4px}
+  .meta-big .num small{font-size:34px;color:#fff}
+  .bar{margin-top:20px}
+  .bar-top{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+  .bar-top strong{color:#fff}
+  .bar-track{height:14px;background:var(--line);border-radius:8px;overflow:hidden}
+  .bar-fill{height:100%;background:var(--gold);border-radius:8px}
+  .meta-side{display:flex;flex-direction:column;gap:12px;justify-content:center}
+  .objs{display:grid;gap:11px}
+  .obj{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:start;border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:20px 22px}
+  .obj .n{width:44px;height:44px;border-radius:11px;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-family:var(--display);font-size:20px}
+  .obj strong{display:block;font-family:var(--display);font-size:20px;margin-bottom:5px}
+  .obj span{font-size:16px;color:var(--muted);line-height:1.45}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .stat{border:1px dashed var(--line);border-radius:10px;padding:12px 14px}
+  .stat b{display:block;font-family:var(--display);font-size:24px;color:#fff;white-space:nowrap}
+  .stat span{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.35}
+
+  /* ---------- GRIDS & CARDS ---------- */
+  h1,h2{text-wrap:balance}
+  .grid{display:grid;gap:14px;margin-top:14px;flex:1;margin-bottom:6px;align-content:center}
+  .grid + .note,.flow + .note{margin-top:18px}
+  .grid .card{display:flex;flex-direction:column;justify-content:center}
+  .grid .card h3{font-size:26px}
+  .grid .card p,.grid .card li{font-size:17.5px}
+  .grid .card .big{font-size:56px}
+  .grid.yt{align-content:start;margin-top:26px}
+  .yt .card{justify-content:flex-start;padding-top:18px}
+  .yt .card h3{min-height:64px;display:flex;align-items:flex-start;margin-bottom:6px}
+  .yt .card .img-slot{height:150px !important}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:26px 24px 24px}
+  .alt .card{background:var(--bg)}
+  .card .tag{display:inline-block;margin-bottom:14px;align-self:flex-start}
+  .card h3{font-size:23px;line-height:1.2;margin-bottom:10px;color:#fff}
+  .card p,.card li{font-size:16px;line-height:1.5;color:var(--muted)}
+  .card ul{list-style:none;display:grid;gap:8px}
+  .card li{position:relative;padding-left:14px}
+  .card li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .card .big{font-family:var(--display);font-size:44px;color:var(--lime);margin-bottom:8px;line-height:1}
+  .card.hl{border-color:var(--lime)}
+  .card .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:7px}
+
+  .rows{display:grid;gap:9px;margin-top:12px;flex:1;margin-bottom:0;align-content:center}
+  .rows + .note{margin-top:12px;margin-bottom:6px}
+  .row{display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:center;border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:10px 22px}
+  .alt .row{background:var(--bg)}
+  .row .n{width:46px;height:46px;border-radius:11px;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-family:var(--display);font-size:20px}
+  .row strong{display:block;font-family:var(--display);font-size:21px;margin-bottom:4px;color:#fff;line-height:1.2}
+  .row span{display:block;color:var(--muted);font-size:15.5px;line-height:1.4}
+
+  .versus{display:grid;grid-template-columns:1fr 60px 1fr;align-items:center;gap:10px;margin-top:18px}
+  .versus .a,.versus .b{border-radius:16px;padding:26px 28px;font-family:var(--display);font-size:32px;line-height:1.2}
+  .versus .a{border:1px dashed var(--line);color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(231,25,31,.7);text-decoration-thickness:2px}
+  .versus .b{background:var(--lime);color:var(--ink)}
+  .versus .arrow{font-family:var(--display);font-size:30px;text-align:center;color:var(--gold)}
+
+  /* ---------- TEXTO LONGO (plano 2026) ---------- */
+  .split{display:grid;grid-template-columns:1fr 400px;gap:40px;flex:1;min-height:0;margin-top:10px;align-items:center}
+  .split.rev{grid-template-columns:400px 1fr}
+  .split .img-slot{height:100%;max-height:470px;min-height:340px}
+  .prose h3{font-size:30px;line-height:1.2;margin-bottom:14px;color:var(--lime)}
+  .prose p{font-size:17px;line-height:1.55;color:#e4e4dc;margin-bottom:12px}
+  .prose p.q{font-size:25px;line-height:1.5;color:#fff}
+  .quad{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;flex:1;min-height:0;margin-bottom:6px}
+  .quad .card{padding:20px 24px;display:flex;flex-direction:column;justify-content:center}
+  .quad .card .tag{margin-bottom:10px}
+  .quad .card h3{font-size:19px;line-height:1.25;margin-bottom:8px;color:var(--lime)}
+  .quad .card p{font-size:14.5px;line-height:1.5;color:#e4e4dc}
+
+  /* ---------- AÇÕES PROPOSTAS ---------- */
+  .act{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column}
+  .act-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .act-head .n{width:40px;height:40px;border-radius:10px;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-family:var(--display);font-size:20px;flex:none}
+  .act-head h3{font-size:20px;line-height:1.15;flex:1}
+  .act ul{list-style:none;display:grid;gap:9px}
+  .act li{position:relative;padding-left:16px;font-size:14.5px;line-height:1.4;color:#e4e4dc}
+  .act li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:2px;background:var(--gold)}
+  .act li b{color:#fff}
+
+  /* ---------- PÚBLICOS ---------- */
+  .pub{border:1px solid var(--line);background:var(--bg);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+  .pub .img-slot{border-radius:0;flex:none;height:250px;box-shadow:none}
+  .pub .body{flex:1;min-height:150px}
+  .cover .chips{margin-bottom:18px}
+  .pub .body{padding:18px 20px 20px}
+  .pub h3{font-size:24px;margin-bottom:8px;color:#fff}
+  .pub p{font-size:14.5px;line-height:1.45;color:var(--muted)}
+
+  /* ---------- TABELA ---------- */
+  table.t{width:100%;border-collapse:collapse;margin-top:18px;font-size:17px}
+  table.t th{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:left;padding:10px 14px;border-bottom:2px solid var(--line)}
+  table.t td{padding:11px 14px;border-bottom:1px solid var(--line);color:#e4e4dc;vertical-align:middle;line-height:1.35}
+  table.t td:first-child{font-family:var(--display);font-size:19px;color:#fff;white-space:nowrap}
+  table.t td:first-child .ico{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:9px;background:var(--lime);color:var(--ink);font-size:19px;margin-right:12px;vertical-align:middle}
+  table.t tr.dim td{color:var(--muted)}
+  table.t tr.dim .ico{background:var(--panel-2);color:var(--muted)}
+  table.t.tight{font-size:15px;margin-top:10px}
+  table.t.tight th{font-size:11.5px}
+  table.t.tight td{padding:11px 10px}
+  table.t.tight td:first-child{font-size:15.5px;white-space:normal}
+
+  /* ---------- FLOW / NOTA ---------- */
+  .flow{display:flex;align-items:stretch;gap:12px;flex:none;margin-top:auto;margin-bottom:auto;padding-top:14px}
+  .flow .step{flex:1;border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;justify-content:center}
+  .alt .flow .step{background:var(--bg)}
+  .flow .step b{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:10px;background:var(--lime);color:var(--ink);font-family:var(--display);font-size:20px;margin-bottom:16px}
+  .flow .step h3{font-size:23px;margin-bottom:10px}
+  .flow .step p{font-size:16px;color:var(--muted);line-height:1.5}
+  .flow .arr{align-self:center;font-family:var(--display);font-size:28px;color:var(--gold);flex:none}
+  .note{margin-top:16px;border-left:4px solid var(--gold);background:rgba(216,152,56,.12);border-radius:0 12px 12px 0;padding:14px 22px;font-size:15.5px;line-height:1.5;color:#ecd9b8}
+  .note b{color:#fff}
+
+  /* ---------- NEWSLETTER ---------- */
+  .nl{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px;flex:1;min-height:0}
+  .nl .card{padding:22px 24px}
+  .nl .card h3{font-size:24px;display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .nl .card h3 .ico{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:var(--lime);color:var(--ink);font-size:21px}
+  .nl li{font-size:16px;color:#e4e4dc}
+  .nl li b{color:#fff}
+  .nl-flow{display:flex;gap:10px;align-items:center;margin-top:14px;font-size:14.5px;color:var(--muted)}
+  .nl-flow span.s{border:1px solid var(--line);background:var(--bg);border-radius:99px;padding:8px 16px;color:#fff;font-weight:700}
+  .nl-flow .a{color:var(--gold);font-family:var(--display);font-size:20px}
+
+  /* ---------- DIVISOR ---------- */
+  .div-wrap{flex:1;display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;min-height:0;align-items:center}
+  .div-title h2{font-size:64px;line-height:1.02;color:var(--ink);margin-bottom:16px}
+  .div-title h2 .hi{color:#fff;text-shadow:0 2px 0 rgba(35,35,35,.35),0 4px 16px rgba(35,35,35,.25)}
+  .div-title p{font-size:19px;font-weight:700;line-height:1.45;max-width:380px}
+  .tiles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .tile{position:relative;border-radius:20px;overflow:hidden;height:250px;background:var(--ink);color:#fff;box-shadow:0 16px 30px rgba(35,35,35,.3)}
+  .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .tile::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(35,35,35,0) 38%,rgba(35,35,35,.92) 100%)}
+  .tile .t-in{position:absolute;left:20px;right:20px;bottom:18px;z-index:2}
+  .tile .num{font-family:var(--display);font-size:54px;line-height:1;color:var(--lime-light)}
+  .tile h3{font-size:24px;margin:4px 0 6px}
+  .tile p{font-size:13.5px;line-height:1.4;color:#e8e8e0;min-height:38px}
+  .tile .t-in{top:auto}
+  .tile::after{content:"imagem provisória";position:absolute;left:12px;top:12px;z-index:2;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;background:rgba(35,35,35,.8);color:#fff;padding:4px 9px;border-radius:99px}
+
+  /* ---------- AÇÃO DETALHADA (formato 2026) ---------- */
+  .ad{display:grid;grid-template-columns:1fr 1fr;gap:18px;flex:1;min-height:0;margin-top:8px;margin-bottom:4px}
+  .ad .blk{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:18px 22px}
+  .ad .blk h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:10px}
+  .ad .blk p{font-size:17px;line-height:1.5;color:#e4e4dc}
+  .ad .col{display:flex;flex-direction:column;gap:14px;min-height:0}
+  .ad .col .blk{flex:1}
+  .ad ul{list-style:none;display:grid;gap:8px}
+  .ad li{position:relative;padding-left:16px;font-size:16.5px;line-height:1.42;color:#e4e4dc}
+  .ad li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--lime)}
+  .ad .res{grid-column:1 / -1;border-color:var(--lime);background:rgba(188,209,69,.1)}
+  .ad .res h4{color:var(--lime)}
+
+  /* ---------- KV ---------- */
+  .kv-full{padding:0;background:#000}
+  .kv-full > img.kvimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .kv-full .slide-foot{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+
+  /* ---------- CALENDÁRIO / KPI ---------- */
+  /* timeline */
+  .gantt{flex:1;display:flex;flex-direction:column;min-height:0}
+  .g-axis{display:grid;grid-template-columns:repeat(12,1fr);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--line)}
+  .g-axis span{padding-left:6px}
+  .g-body{position:relative;flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:6px 0;
+    background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0,rgba(255,255,255,.07) 1px,transparent 1px,transparent calc(100% / 12))}
+  .g-lane{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--lime);margin:4px 0 0}
+  .g-lane.com{color:var(--gold);margin-top:8px}
+  .g-row{position:relative;height:30px}
+  .g-bar{position:absolute;top:2px;height:26px;border-radius:99px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;gap:12px;overflow:hidden;white-space:nowrap}
+  .g-bar b{font-size:12.5px;font-weight:700;color:var(--ink)}
+  .g-bar i{font-style:normal;font-size:11.5px;font-weight:700;color:rgba(35,35,35,.75)}
+  .g-bar.camp{background:var(--lime)}
+  .g-bar.com{background:var(--gold)}
+  .g-bar.ghost{background:transparent;border:2px dashed var(--gold)}
+  .g-bar.ghost b,.g-bar.ghost i{color:var(--gold)}
+  .g-bar.dots{background-image:radial-gradient(circle,rgba(35,35,35,.55) 3px,transparent 3.5px);background-size:46px 100%;background-position:center;background-color:var(--lime)}
+  .g-bar.dots b,.g-bar.dots i{background:var(--lime);padding:2px 8px;border-radius:99px}
+  .g-note{position:absolute;top:0;height:30px;display:flex;align-items:center;font-size:12.5px;color:#e4e4dc;white-space:nowrap}
+  .g-note.r{justify-content:flex-end}
+  .g-star{position:absolute;top:3px;width:24px;height:24px;margin-left:-12px;background:var(--lime-light);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+  .g-arrow{position:absolute;top:0;height:30px;margin-left:-22px;display:flex;align-items:center;font-family:var(--display);font-size:22px;color:var(--lime)}
+  .cal{display:grid;grid-template-columns:1.12fr .88fr;gap:20px;margin-top:6px;flex:1;min-height:0}
+  .cal h3{font-size:17px;margin-bottom:2px;color:var(--lime)}
+  .tl{display:grid;gap:9px;margin-top:10px}
+  .tl-item{border:1px solid var(--line);background:var(--bg);border-radius:11px;padding:12px 16px}
+  .tl-item b{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:3px}
+  .tl-item span{font-size:14.5px;line-height:1.4;color:#e4e4dc}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:14px;margin-top:20px;flex:1}
+  .kpi{border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:20px 20px;display:flex;flex-direction:column;justify-content:center}
+  .kpi b{display:block;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px}
+  .kpi span{font-size:17px;line-height:1.4;color:#e4e4dc}
+
+  /* ---------- ENCERRAMENTO ---------- */
+  .end{flex:1;display:grid;grid-template-columns:480px 1fr;gap:34px;align-items:center;min-height:0}
+  .end .art{position:relative;display:flex;justify-content:center;align-items:center;height:100%}
+  .end .art::before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 66%)}
+  .end .art img{position:relative;height:500px;width:auto;filter:drop-shadow(0 22px 28px rgba(35,35,35,.4))}
+  .end .logo{width:250px;display:block;margin-bottom:24px;filter:drop-shadow(0 1px 2px rgba(35,35,35,.6)) drop-shadow(0 4px 8px rgba(35,35,35,.3))}
+  .end h2{font-size:56px;line-height:1.05;color:var(--ink);margin-bottom:18px}
+  .end h2 .hi{color:#fff;text-shadow:0 2px 0 rgba(35,35,35,.35),0 4px 16px rgba(35,35,35,.25)}
+  .end h2{margin-bottom:34px}
+
+  @media print{
+    .slide.ch-hidden{display:none !important}
+    @page{size:13.333in 7.5in;margin:0}
+    html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .deck{position:static;overflow:visible}
+    #stage{position:static !important;transform:none !important;top:auto;left:auto}
+    .deck-controls,.ch-toast{display:none !important}
+    .slide{display:flex !important;position:relative !important;inset:auto;page-break-after:always;break-after:page}
+    .slide:last-of-type{page-break-after:auto;break-after:auto}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c3.2 3.2 3.2 14.8 0 18-3.2-3.2-3.2-14.8 0-18z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.2A8.5 8.5 0 1 1 20.5 12z"/><path d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1.2-1.6-2.2-1.1-1 .9c-1.1-.5-2-1.4-2.5-2.5l.9-1-1.1-2.2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5 12 13.5l8.5-6"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></symbol>
+  <symbol id="i-mega" viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 0 0 1 1h2.5l5.5 4.2V5.3L6.5 9.5H4a1 1 0 0 0-1 1z"/><path d="M15.5 9a4 4 0 0 1 0 6"/><path d="M18.5 6.5a8 8 0 0 1 0 11"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3.5v11a3.6 3.6 0 1 1-3.6-3.6"/><path d="M14 3.5c.4 2.7 2 4.3 5 4.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.8 0 4.5 1.8 4.5 4.5"/></symbol>
+</svg>
+
+<div class="deck">
+  <div id="stage">
+
+    <!-- 01 · CAPA -->
+    <section class="slide lime bg-capa active" id="s01">
+      <img class="fx edge-r" src="img/serpentinas-dir.png" alt="">
+      <div class="cover">
+        <div class="cover-text">
+          <img class="logo" src="img/logo-us-kv.png" alt="União Solidária · Transformando Vidas">
+          <span class="eyebrow">Campanha União Solidária · 10 anos</span>
+          <h1>Plano de Comunicação <span class="year">2027</span></h1>
+          <p class="lead">Dar força a quem nunca deixa de cuidar.</p>
+          <div class="chips"><span>Meta 2027 · R$ 10 milhões</span><span>10 anos premiando quem faz o bem</span></div>
+        </div>
+        <div class="cover-art"><img src="img/medalha-luzes-limpa.png" alt="10 anos · Premiando quem faz o bem"></div>
+      </div>
+      <div class="brandline">
+        <div class="grp"><small>Realização</small><div class="logos"><img class="dx" src="img/logo-dexis-instituto-kv.png" alt="Dexis Instituto"></div></div>
+        <div class="grp"><small>Apoio</small><div class="logos">
+          <img src="img/logo-cocamar-claro.png" alt="Instituto Cocamar">
+          <img src="img/logo-sicredi-dexis-claro.png" alt="Sicredi Dexis">
+          <img src="img/logo-canal-verde-claro.png" alt="Canal Verde">
+        </div></div>
+      </div>
+    </section>
+
+    <!-- 02 · OBJETIVO E META -->
+    <section class="slide alt">
+      <span class="eyebrow">Objetivo 2027</span>
+      <h2 class="s-title">Ampliar a arrecadação e <span class="hi">aproximar quem faz o bem</span> de quem pode ajudar.</h2>
+      <div class="meta-wrap">
+        <div class="meta-big">
+          <span class="lbl">Meta de arrecadação 2027</span>
+          <div class="num">R$ 10 <small>milhões</small></div>
+          <div class="bar">
+            <div class="bar-top"><span>Arrecadado em 2026 (parcial)</span><strong>R$ 7.546.220</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:75.5%"></div></div>
+          </div>
+          <div class="stat-row" style="margin-top:20px">
+            <div class="stat"><b>+R$ 2,45 mi</b><span>a mais sobre o parcial de 2026</span></div>
+            <div class="stat"><b>+32,5%</b><span>de crescimento necessário</span></div>
+            <div class="stat"><b>1 milhão</b><span>de cupons de R$ 10,00</span></div>
+          </div>
+        </div>
+        <div class="meta-side">
+          <div class="objs">
+            <div class="obj"><div class="n">1</div><div><strong>Ampliar a arrecadação</strong><span>Mais cupons vendidos, mais entidades vendendo.</span></div></div>
+            <div class="obj"><div class="n">2</div><div><strong>Aproximar entidades e voluntários dos parceiros</strong><span>Sicredi Dexis, Cocamar e Canal Verde mais perto de quem atua.</span></div></div>
+            <div class="obj"><div class="n">3</div><div><strong>Fortalecer a presença na comunidade</strong><span>Mídia paga, offline e conteúdos de impacto.</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span><span>2026 parcial · valor a atualizar ao fim da campanha</span></div>
+    </section>
+
+    <!-- 03 · AÇÕES PROPOSTAS -->
+    <section class="slide">
+      <span class="eyebrow">Ações propostas</span>
+      <h2 class="s-title" style="margin-bottom:6px">O que vamos <span class="hi">executar em 2027.</span></h2>
+      <div class="grid g3" style="margin-top:12px;gap:14px;align-content:stretch">
+        <div class="act">
+          <div class="act-head"><div class="n">1</div><h3>Conexão com associados</h3><span class="st mantem">Mantém</span></div>
+          <ul>
+            <li><b>Inserir</b> a campanha na agenda de eventos do Sicredi.</li>
+            <li><b>Levar</b> uma entidade da cidade para contar seu projeto.</li>
+            <li><b>Apresentar</b> os números do município e <b>liberar</b> o arrecadômetro em cada agência.</li>
+          </ul>
+        </div>
+        <div class="act">
+          <div class="act-head"><div class="n">2</div><h3>Conexão com a comunidade</h3><span class="st mantem">Mantém</span></div>
+          <ul>
+            <li><b>Indicar</b> voluntários a partir das entidades participantes.</li>
+            <li><b>Reconhecer</b> e dar visibilidade às histórias reais.</li>
+            <li><b>Mobilizar</b> a comunidade com mídia paga e offline.</li>
+          </ul>
+        </div>
+        <div class="act">
+          <div class="act-head"><div class="n">3</div><h3>Conexão com colaboradores</h3><span class="st mantem">Mantém</span></div>
+          <ul>
+            <li><b>Incluir</b> os marcos da campanha no editorial interno.</li>
+            <li><b>Criar</b> a trilha de impacto com números e depoimentos.</li>
+            <li><b>Levar</b> as histórias a perfis institucionais, como o "Poder dos Juntos".</li>
+          </ul>
+        </div>
+        <div class="act">
+          <div class="act-head"><div class="n">4</div><h3>Conexão com as entidades</h3><span class="st ajusta">Ajusta</span></div>
+          <ul>
+            <li><b>Reaproveitar</b> o acervo de vídeos e imagens já captado.</li>
+            <li><b>Captar</b> novo conteúdo só com escopo e demanda validados.</li>
+            <li><b>Incentivar</b> colabs orgânicas de venda de cupons.</li>
+          </ul>
+        </div>
+        <div class="act">
+          <div class="act-head"><div class="n">5</div><h3>Canais</h3><span class="st novo">Novo</span></div>
+          <ul>
+            <li><b>Estruturar</b> a newsletter para entidades e compradores.</li>
+            <li><b>Organizar</b> o YouTube em playlists.</li>
+            <li><b>Manter</b> o Instagram nas entidades e <b>avaliar</b> o TikTok antes de abrir.</li>
+          </ul>
+        </div>
+        <div class="act">
+          <div class="act-head"><div class="n">6</div><h3>Base e sistema</h3><span class="st novo">Novo</span></div>
+          <ul>
+            <li><b>Produzir</b> os materiais-base dos 10 anos: vídeo, resultados e banners.</li>
+            <li><b>Simplificar</b> o acesso das entidades: do WhatsApp ao cadastro no site.</li>
+            <li><b>Evoluir</b> o histórico por município e o arrecadômetro no início de 2027.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="small" style="margin-top:4px">Influenciadores deixam de ser frente prioritária até haver um novo modelo validado.</p>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 04 · DO SOFRIMENTO AO CUIDADO -->
+    <section class="slide alt">
+      <span class="eyebrow">Narrativa</span>
+      <h2 class="s-title">Do sofrimento ao cuidado: <span class="hi">a virada da narrativa.</span></h2>
+      <div class="split" style="grid-template-columns:1fr 360px;align-items:stretch">
+        <div style="display:flex;flex-direction:column;justify-content:center">
+          <div class="versus" style="margin-top:0">
+            <div class="a">Do sofrimento como centro</div><div class="arrow">→</div><div class="b">para o cuidado como narrativa</div>
+          </div>
+          <div class="versus">
+            <div class="a">Do impacto da dor</div><div class="arrow">→</div><div class="b">para potência da dedicação</div>
+          </div>
+          <div class="note" style="margin-top:22px"><b>Em 2027:</b> priorizar impacto, resultados, esforço e cuidado de quem atua nas entidades. Evitar uma comunicação baseada em sofrimento, e sustentar a narrativa com histórias reais, depoimentos e conteúdos de antes e depois.</div>
+        </div>
+        <!-- IMAGEM · PROMPT: Retrato documental e caloroso de uma cuidadora de entidade social sorrindo enquanto atende uma criança, luz natural suave, tons quentes, sem dramatização, foco na dedicação e no cuidado, estilo fotográfico editorial. -->
+        <div class="img-slot"><img src="img/ia/01-sofrimento-ao-cuidado.jpg" alt=""></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 05 · A CAUSA -->
+    <section class="slide">
+      <span class="eyebrow">A causa</span>
+      <div class="split">
+        <div class="prose">
+          <h3>Dar força a quem nunca deixa de cuidar:</h3>
+          <p class="q">A Campanha União Solidária existe para reconhecer e apoiar as entidades que estão ao lado da comunidade todos os dias. São elas que acolhem, acompanham, orientam e amparam pessoas em momentos difíceis, muitas vezes sem visibilidade e sem o apoio que merecem. Nossa causa é dar força a esse cuidado para que ele continue chegando a quem mais precisa.</p>
+        </div>
+        <!-- IMAGEM · PROMPT: Mãos de pessoas de idades diferentes se unindo sobre uma mesa de madeira, voluntários e entidade, luz suave de fim de tarde, cores verde e amarelo discretas, fotografia editorial humana. -->
+        <div class="img-slot"><img src="img/ia/02-a-causa.jpg" alt=""></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 06 · PROPOSTA DE VALOR -->
+    <section class="slide">
+      <!-- IMAGEM DE FUNDO · PROMPT: Fotografia ampla de voluntários e crianças de uma entidade social abraçados em grupo ao ar livre, luz dourada de fim de tarde, sorrisos genuínos, profundidade de campo suave, estilo documental editorial (será usada com overlay escuro). -->
+      <img class="fx" src="img/ia/03-proposta-de-valor-fundo.jpg" alt="" style="inset:0;width:100%;height:100%;object-fit:cover">
+      <div class="fx" style="inset:0;background:linear-gradient(90deg,rgba(38,38,38,.94) 0%,rgba(38,38,38,.82) 55%,rgba(38,38,38,.55) 100%)"></div>
+      <span class="eyebrow">Proposta de valor</span>
+      <div style="flex:1;margin:6px 0 6px;padding:10px 0 10px 40px;display:flex;flex-direction:column;justify-content:center;border-left:6px solid var(--lime)">
+        <h3 style="font-size:54px;line-height:1.12;margin-bottom:28px;max-width:900px">Uma campanha que fortalece quem já cuida de tanta gente.</h3>
+        <p style="font-size:22px;line-height:1.55;color:#ececE4;max-width:900px">A Campanha União Solidária aproxima a comunidade, empresas, colaboradores e associados das entidades que já fazem a diferença todos os dias. Ao dar visibilidade a esse cuidado e mobilizar apoio para ampliá-lo, a campanha ajuda essas instituições a seguirem presentes, fortes e capazes de transformar ainda mais vidas.</p>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 07 · NARRATIVA DE CAUSA (nova sugestão, texto do plano 2026) -->
+    <section class="slide">
+      <span class="eyebrow">Narrativa de causa</span>
+      <div class="quad">
+        <div class="card"><span class="st mantem tag">O sonho</span><h3>Um futuro em que toda entidade que cuida tenha com quem contar:</h3><p>Sonhamos com comunidades em que nenhuma entidade precise carregar sozinha a responsabilidade de acolher, proteger e sustentar tantas vidas. Um futuro em que esse cuidado diário seja visto, valorizado e apoiado por todos que podem fazer parte dele.</p></div>
+        <div class="card"><span class="st ajusta tag">O obstáculo</span><h3>Quem sustenta tanta gente ainda recebe menos apoio do que precisa:</h3><p>Muitas entidades estão presentes todos os dias na vida de quem mais precisa, mas esse trabalho nem sempre é percebido na sua real dimensão. Falta visibilidade para o cuidado que elas oferecem, falta reconhecimento para sua dedicação e falta apoio para que consigam continuar fazendo o que já fazem tão bem.</p></div>
+        <div class="card"><span class="st novo tag">O plano</span><h3>Aproximar mais pessoas de quem já faz a diferença todos os dias:</h3><p>Nosso plano é mostrar, com mais verdade e proximidade, o trabalho das entidades, tornando visível o cuidado que elas oferecem à comunidade. A campanha existe para conectar esse esforço diário ao apoio da sociedade, ampliando reconhecimento, participação e arrecadação para que essas instituições possam seguir cuidando de mais vidas.</p></div>
+        <div class="card"><span class="st conf tag">O chamado</span><h3>Uma campanha que apoia quem apoia tanta gente:</h3><p>A Campanha União Solidária aproxima a comunidade, empresas, colaboradores e associados das entidades que já fazem a diferença todos os dias. Ao dar visibilidade a esse cuidado e mobilizar apoio para ampliá-lo, a campanha ajuda essas instituições a seguirem presentes, fortes e capazes de transformar ainda mais vidas.</p></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 08 · PÚBLICOS-ALVO (visão geral) -->
+    <section class="slide alt">
+      <span class="eyebrow">Públicos-alvo</span>
+      <h2 class="s-title" style="margin-bottom:4px">Quatro públicos, <span class="hi">uma mesma causa.</span></h2>
+      <div class="grid g4" style="margin-top:14px;align-content:center">
+        <div class="pub">
+          <!-- IMAGEM · PROMPT (Comunidade): Moradores de uma cidade do interior do Paraná em uma praça, famílias e vizinhos conversando e sorrindo, luz natural de manhã, clima de proximidade e participação, fotografia documental editorial. -->
+          <div class="img-slot"><img src="img/ia/04-publico-comunidade-card.jpg" alt=""></div>
+          <div class="body"><h3>Comunidade</h3><p>Pessoas da sociedade civil que vivem a realidade da região e podem apoiar a transformação local.</p></div>
+        </div>
+        <div class="pub">
+          <!-- IMAGEM · PROMPT (Entidades): Equipe de uma entidade social (assistência social, educação ou saúde) reunida em volta de uma mesa, planejando um projeto, ambiente simples e acolhedor, luz natural, expressões de dedicação, fotografia editorial. -->
+          <div class="img-slot"><img src="img/ia/05-publico-entidades-card.jpg" alt=""></div>
+          <div class="body"><h3>Entidades</h3><p>Organizações sociais que precisam de apoio para viabilizar e ampliar seu impacto.</p></div>
+        </div>
+        <div class="pub">
+          <!-- IMAGEM · PROMPT (Colaboradores): Colaboradores de uma cooperativa de crédito e de uma cooperativa agroindustrial em um momento de voluntariado, camisetas com cores verdes, trabalhando lado a lado com uma entidade, orgulho no olhar, fotografia editorial. -->
+          <div class="img-slot"><img src="img/ia/06-publico-colaboradores-card.jpg" alt=""></div>
+          <div class="body"><h3>Colaboradores</h3><p>Pessoas que fazem a campanha acontecer de dentro para fora.</p></div>
+        </div>
+        <div class="pub">
+          <!-- IMAGEM · PROMPT (Associados): Associados de uma cooperativa em uma assembleia ou evento em uma agência, adultos e idosos atentos ouvindo uma apresentação, ambiente acolhedor, luz quente, fotografia documental editorial. -->
+          <div class="img-slot"><img src="img/ia/07-publico-associados-card.jpg" alt=""></div>
+          <div class="body"><h3>Associados</h3><p>Pessoas que já fazem parte da cooperativa, mas nem sempre percebem o impacto social que ajudam a gerar.</p></div>
+        </div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 09 · PÚBLICO: COMUNIDADE -->
+    <section class="slide">
+      <span class="eyebrow">Públicos-alvo · Comunidade</span>
+      <div class="split">
+        <div class="prose">
+          <h3>Pessoas da sociedade civil que vivem a realidade da região e podem apoiar a transformação local:</h3>
+          <p>Esse público é formado pela comunidade em geral — pessoas que vivem e/ou são impactadas pelas ações que a Campanha União Solidária ajuda a viabilizar. Em muitos casos, enxergam o ato de ajudar como algo trabalhoso, distante ou com pouco resultado prático. Ao mesmo tempo, são expostas diariamente aos problemas da sociedade, mas nem sempre têm acesso claro às soluções, conquistas e transformações geradas pelo cooperativismo em sua própria região.</p>
+          <p>Por isso, esse público precisa ser sensibilizado de forma constante. A comunicação deve aproximar a causa do cotidiano, mostrar projetos reais, evidenciar resultados concretos e despertar um sentimento de participação. Mais do que pedir apoio, é preciso fazer essa pessoa perceber que sua contribuição é simples, acessível e capaz de gerar impacto verdadeiro na comunidade onde ela vive.</p>
+        </div>
+        <!-- IMAGEM · PROMPT: Família e vizinhos de uma cidade do interior do Paraná em um evento comunitário de rua, crianças e adultos sorrindo, bandeirinhas coloridas ao fundo, luz de fim de tarde, fotografia documental editorial. -->
+        <div class="img-slot"><img src="img/ia/08-publico-comunidade-retrato.jpg" alt=""></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 10 · PÚBLICO: ENTIDADES -->
+    <section class="slide alt">
+      <span class="eyebrow">Públicos-alvo · Entidades</span>
+      <div class="split rev">
+        <!-- IMAGEM · PROMPT: Educadora de uma entidade social ensinando um grupo de crianças em uma sala simples e colorida, desenhos nas paredes, luz natural entrando pela janela, clima acolhedor, fotografia documental editorial. -->
+        <div class="img-slot"><img src="img/ia/09-publico-entidades-retrato.jpg" alt=""></div>
+        <div class="prose">
+          <h3>Organizações sociais que precisam de apoio para viabilizar e ampliar seu impacto</h3>
+          <p>Esse público é formado pelas entidades sem fins lucrativos que atuam nas regiões contempladas pela Campanha União Solidária e que desenvolvem projetos de relevância social. São organizações que conhecem profundamente as necessidades da comunidade e já realizam um trabalho importante, mas que muitas vezes enfrentam limitações de recursos para sustentar, expandir ou qualificar suas ações.</p>
+          <p>Para essas entidades, a campanha representa uma oportunidade de transformar necessidade em mobilização e projeto em arrecadação. A comunicação deve reforçar que a Campanha União Solidária é uma ponte entre a causa e a comunidade, oferecendo visibilidade, credibilidade e uma mecânica capaz de potencializar a captação de recursos. Mais do que convidar a participar, é preciso mostrar que a campanha fortalece o trabalho da entidade e amplia sua capacidade de transformação.</p>
+        </div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 11 · PÚBLICO: COLABORADORES -->
+    <section class="slide">
+      <span class="eyebrow">Públicos-alvo · Colaboradores</span>
+      <div class="split">
+        <div class="prose">
+          <h3>Pessoas que fazem a campanha acontecer de dentro para fora:</h3>
+          <p>Esse público é formado pelos colaboradores da Sicredi Dexis, Cocamar e Canal Verde, que vivenciam diariamente o cooperativismo e têm papel fundamental na realização da Campanha União Solidária. Justamente por estarem imersos nessa rotina, podem acabar automatizando processos e perdendo, no dia a dia, a conexão mais viva com os princípios e com o impacto social que sustenta esse trabalho.</p>
+          <p>Por isso, precisam ser constantemente reconectados ao propósito. A comunicação com esse público deve reforçar seu papel como agentes de transformação, valorizando sua participação, mostrando os resultados gerados e despertando orgulho por fazer parte de algo maior. Mais do que informar, é preciso reacender neles a consciência de que o social não é um complemento da rotina, mas uma parte essencial do cooperativismo e da própria campanha.</p>
+        </div>
+        <!-- IMAGEM · PROMPT: Grupo de colaboradores de uma cooperativa em um dia de ação voluntária, camisetas verdes, entregando doações a uma entidade, sorrisos genuínos, luz natural, fotografia documental editorial. -->
+        <div class="img-slot"><img src="img/ia/10-publico-colaboradores-retrato.jpg" alt=""></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 12 · PÚBLICO: ASSOCIADOS -->
+    <section class="slide alt">
+      <span class="eyebrow">Públicos-alvo · Associados</span>
+      <div class="split rev">
+        <!-- IMAGEM · PROMPT: Associados de uma cooperativa, adultos e idosos, sentados em um auditório de agência durante um evento, ouvindo com atenção uma entidade apresentar um projeto, luz quente, fotografia documental editorial. -->
+        <div class="img-slot"><img src="img/ia/11-publico-associados-retrato.jpg" alt=""></div>
+        <div class="prose">
+          <h3>Pessoas que já fazem parte da cooperativa, mas nem sempre percebem o impacto social que ajudam a gerar</h3>
+          <p>Esse público é formado pelos associados da cooperativa, que, de forma direta ou indireta, também apoiam a Campanha União Solidária. Embora já estejam conectados ao universo cooperativista, nem sempre são impactados pela campanha ou compreendem com clareza a dimensão social das ações viabilizadas por ela.</p>
+          <p>Essa distância enfraquece a percepção de um dos principais diferenciais da cooperativa: sua capacidade de gerar impacto positivo na comunidade por meio da ação coletiva. Por isso, a comunicação com esse público deve aproximá-lo da Campanha União Solidária, evidenciando resultados, causas apoiadas e transformações concretas geradas no território. Mais do que informar, é preciso fazer com que os associados percebam que também fazem parte desse movimento. O objetivo é ampliar seu conhecimento sobre a campanha, fortalecer o vínculo com essa frente de atuação e estimular uma participação mais consciente, próxima e engajada.</p>
+        </div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 13 · PILARES EDITORIAIS -->
+    <section class="slide">
+      <span class="eyebrow">Pilares editoriais</span>
+      <h2 class="s-title">O que a campanha <span class="hi">conta em 2027.</span></h2>
+      <div class="rows" style="margin-top:16px">
+        <div class="row"><div class="n">1</div><div><strong>Histórias reais e depoimentos</strong><span>Quem atua nas entidades, em primeira pessoa.</span></div></div>
+        <div class="row"><div class="n">2</div><div><strong>Antes e depois</strong><span>O que o apoio da comunidade transformou na prática.</span></div></div>
+        <div class="row"><div class="n">3</div><div><strong>Impacto, resultados e números locais</strong><span>Arrecadação por município, projetos e conquistas.</span></div></div>
+        <div class="row"><div class="n">4</div><div><strong>Esforço e cuidado de quem atua nas entidades</strong><span>A dedicação do dia a dia como protagonista.</span></div></div>
+        <div class="row"><div class="n">5</div><div><strong>Colabs orgânicas sobre venda de cupons</strong><span>Entidades divulgando com exemplos e critério editorial, sem travar boas colabs por padronização prévia.</span></div></div>
+      </div>
+      <div class="note"><b>Regra de produção:</b> reaproveitar e recortar o acervo antes de captar material novo. Novas captações exigem escopo e demanda validados.</div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 14 · MAPA DE CANAIS -->
+    <section class="slide alt">
+      <span class="eyebrow">Canais</span>
+      <h2 class="s-title" style="margin-bottom:0">Cada canal com <span class="hi">um papel claro.</span></h2>
+      <table class="t">
+        <thead><tr><th>Canal</th><th>Papel em 2027</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ico"><svg class="ic"><use href="#i-insta"/></svg></span>Instagram</td><td>Entidades, projetos, resultados e mobilização</td><td><span class="st mantem">Mantém</span></td></tr>
+          <tr><td><span class="ico"><svg class="ic"><use href="#i-globe"/></svg></span>Site</td><td>Cadastro, acesso da entidade e captação de contatos com pop-up</td><td><span class="st ajusta">Ajusta</span></td></tr>
+          <tr><td><span class="ico"><svg class="ic"><use href="#i-wa"/></svg></span>WhatsApp</td><td>Conduz a entidade ao cadastro no site</td><td><span class="st ajusta">Ajusta</span></td></tr>
+          <tr><td><span class="ico"><svg class="ic"><use href="#i-mail"/></svg></span>Newsletter</td><td>Entidades e compradores/apoiadores, ligada ao editorial</td><td><span class="st novo">Novo</span></td></tr>
+          <tr><td><span class="ico"><svg class="ic"><use href="#i-yt"/></svg></span>YouTube</td><td>Playlists: depoimentos, histórias, tutoriais e institucionais</td><td><span class="st novo">Novo</span></td></tr>
+          <tr><td><span class="ico"><svg class="ic"><use href="#i-mega"/></svg></span>Mídia paga e offline</td><td>Alcançar a comunidade, com conteúdos de impacto</td><td><span class="st mantem">Mantém</span></td></tr>
+          <tr class="dim"><td><span class="ico"><svg class="ic"><use href="#i-tiktok"/></svg></span>TikTok</td><td>Avaliar abertura e operação antes de virar canal fixo</td><td><span class="st conf">A confirmar</span></td></tr>
+          <tr class="dim"><td><span class="ico"><svg class="ic"><use href="#i-users"/></svg></span>Influenciadores</td><td>Sem frente prioritária até haver novo modelo validado</td><td><span class="st pausa">Pausa</span></td></tr>
+        </tbody>
+      </table>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 15 · INSTAGRAM -->
+    <section class="slide">
+      <span class="eyebrow"><svg class="ic" style="font-size:16px"><use href="#i-insta"/></svg> Canais · Instagram <span class="st mantem">Mantém</span></span>
+      <h2 class="s-title">Instagram segue <span class="hi">voltado às entidades.</span></h2>
+      <div class="split" style="grid-template-columns:1fr 360px;align-items:stretch">
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:14px">
+          <p class="s-lead" style="margin-bottom:6px">O perfil continua sendo vitrine dos projetos, resultados e mobilização de quem atua na ponta. A comunidade é alcançada também por mídia paga, offline e conteúdos de impacto.</p>
+          <div class="card"><h3 style="font-size:21px">Entidades</h3><p>Projetos, rotinas e resultados contados pelas próprias entidades.</p></div>
+          <div class="card"><h3 style="font-size:21px">Mobilização</h3><p>Chamadas para vender cupons, participar e acompanhar a campanha.</p></div>
+          <div class="card"><h3 style="font-size:21px">Impacto</h3><p>Números locais, antes e depois, histórias reais e depoimentos.</p></div>
+        </div>
+        <!-- IMAGEM · PROMPT: Mockup de um smartphone mostrando um feed do Instagram com posts de entidades sociais (fotos de crianças, voluntários e números de arrecadação), identidade verde e amarela, fundo neutro limpo. -->
+        <div class="img-slot"><img src="img/ia/12-instagram-mockup.jpg" alt=""></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 16 · NEWSLETTER -->
+    <section class="slide alt">
+      <span class="eyebrow"><svg class="ic" style="font-size:16px"><use href="#i-mail"/></svg> Canais · Newsletter <span class="st novo">Novo</span></span>
+      <h2 class="s-title" style="margin-bottom:4px">A newsletter: <span class="hi">o que vamos contar.</span></h2>
+      <p class="s-lead" style="font-size:17px">Conectada ao editorial da campanha, com atualizações, projetos participantes e captação de contatos via pop-up no site.</p>
+      <div class="nl">
+        <div class="card">
+          <h3><span class="ico"><svg class="ic"><use href="#i-users"/></svg></span>Para as entidades</h3>
+          <ul>
+            <li><b>Atualizações da campanha:</b> prazos, marcos, orientações e novidades do sistema.</li>
+            <li><b>Projetos participantes:</b> o que outras entidades estão fazendo e conquistando.</li>
+            <li><b>Colabs de venda de cupons:</b> exemplos de entidades que divulgaram bem.</li>
+            <li><b>Tutoriais:</b> como usar o novo sistema, depois da confirmação das telas.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="ico"><svg class="ic"><use href="#i-mail"/></svg></span>Para compradores e apoiadores</h3>
+          <ul>
+            <li><b>Atualizações da campanha:</b> andamento, sorteios e resultados.</li>
+            <li><b>Projetos participantes:</b> para quem o apoio está indo.</li>
+            <li><b>Histórias reais e depoimentos:</b> quem atua nas entidades, em primeira pessoa.</li>
+            <li><b>Resultados e números:</b> impacto por município, com antes e depois.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="nl-flow"><span class="s">Pop-up no site</span><span class="a">→</span><span class="s">Base de contatos</span><span class="a">→</span><span class="s">Envio no ritmo do editorial</span></div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 17 · YOUTUBE -->
+    <section class="slide">
+      <span class="eyebrow"><svg class="ic" style="font-size:16px"><use href="#i-yt"/></svg> Canais · YouTube <span class="st novo">Novo</span></span>
+      <h2 class="s-title">YouTube organizado <span class="hi">em playlists.</span></h2>
+      <div class="grid g4 yt" style="margin-top:10px">
+        <div class="card">
+          <!-- IMAGEM · PROMPT (Depoimentos): Frame de vídeo de um depoimento, mulher de uma entidade falando para a câmera em um ambiente simples e iluminado, estilo documentário. -->
+          <div class="img-slot" style="height:130px;margin-bottom:16px;border-radius:12px"><img src="img/ia/13-youtube-depoimentos.jpg" alt=""></div>
+          <h3 style="font-size:22px">Depoimentos</h3><p>Quem vive a campanha, em primeira pessoa.</p></div>
+        <div class="card">
+          <!-- IMAGEM · PROMPT (Histórias): Frame de vídeo mostrando antes e depois de uma reforma em uma entidade, imagem dividida ao meio, tons realistas. -->
+          <div class="img-slot" style="height:130px;margin-bottom:16px;border-radius:12px"><img src="img/ia/14-youtube-historias.jpg" alt=""></div>
+          <h3 style="font-size:22px">Histórias da campanha</h3><p>Antes e depois, projetos e conquistas.</p></div>
+        <div class="card">
+          <!-- IMAGEM · PROMPT (Tutoriais): Captura de tela estilizada de um painel de cadastro de entidade em um laptop, cores verdes, interface limpa. -->
+          <div class="img-slot" style="height:130px;margin-bottom:16px;border-radius:12px"><img src="img/ia/15-youtube-tutoriais.jpg" alt=""></div>
+          <h3 style="font-size:22px">Tutoriais</h3><p>Como a entidade usa o novo sistema.</p></div>
+        <div class="card">
+          <!-- IMAGEM · PROMPT (Institucionais): Frame de vídeo comemorativo dos 10 anos com a medalha dourada e confete, fundo verde. -->
+          <div class="img-slot" style="height:130px;margin-bottom:16px;border-radius:12px"><img src="img/ia/16-youtube-institucionais.jpg" alt=""></div>
+          <h3 style="font-size:22px">Institucionais</h3><p>Vídeo dos 10 anos e apresentações de resultados.</p></div>
+      </div>
+      <div class="note"><b>Cuidado com a ordem:</b> os tutoriais antigos só são revisados ou ocultados depois da confirmação do novo sistema.</div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 18 · TIKTOK E INFLUENCIADORES -->
+    <section class="slide alt">
+      <span class="eyebrow">Canais · Em avaliação</span>
+      <h2 class="s-title">TikTok e influenciadores: <span class="hi">sem pressa, com critério.</span></h2>
+      <div class="grid g2">
+        <div class="card" style="padding:28px"><span class="st conf tag">A confirmar</span><h3 style="font-size:26px"><svg class="ic" style="font-size:24px;vertical-align:-3px;margin-right:8px"><use href="#i-tiktok"/></svg>TikTok</h3><p>Avaliar a abertura e a operação do canal antes de incorporá-lo como canal fixo da campanha.</p></div>
+        <div class="card" style="padding:28px"><span class="st pausa tag">Pausa</span><h3 style="font-size:26px"><svg class="ic" style="font-size:24px;vertical-align:-3px;margin-right:8px"><use href="#i-users"/></svg>Influenciadores</h3><p>Não são frente prioritária. A iniciativa anterior teve baixa efetividade, e só voltam com um novo modelo validado.</p></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 19 · MÍDIA PAGA, OFFLINE E PRAÇAS -->
+    <section class="slide" data-channel="midia">
+      <span class="eyebrow"><svg class="ic" style="font-size:16px"><use href="#i-mega"/></svg> Canais · Mídia paga e offline <span class="st mantem">Mantém</span></span>
+      <h2 class="s-title">Mídia para <span class="hi">chegar à comunidade.</span></h2>
+      <div class="split" style="grid-template-columns:1fr 340px;align-items:stretch;margin-top:6px">
+        <div style="display:flex;flex-direction:column;gap:14px;justify-content:center">
+          <div class="grid g3" style="margin-top:0;flex:none">
+            <div class="card"><h3>Rádio</h3><p>Entrevistas com gerentes das cidades.</p></div>
+            <div class="card"><h3>Outbus / busdoor</h3><p>Cidades-chave. Em 2026: Maringá, Paranavaí e Piracicaba.</p></div>
+            <div class="card"><h3>Digital</h3><p>Verba ampliada, com conteúdos de impacto.</p></div>
+          </div>
+          <div class="card" style="padding:20px 24px">
+            <span class="st novo tag">Território · edital 2026</span>
+            <div class="stat-row" style="grid-template-columns:repeat(6,1fr)">
+              <div class="stat"><b style="color:var(--lime)">138</b><span>cidades elegíveis</span></div>
+              <div class="stat"><b>82</b><span>no Paraná</span></div>
+              <div class="stat"><b>48</b><span>em São Paulo</span></div>
+              <div class="stat"><b>5</b><span>no MS</span></div>
+              <div class="stat"><b>2</b><span>no MT</span></div>
+              <div class="stat"><b>1</b><span>em Goiás</span></div>
+            </div>
+            <p class="small" style="margin-top:12px;font-size:13.5px">Área de atuação do Dexis Instituto, Instituto Cocamar e Canal Verde. As praças de mídia de 2027 e a verba serão definidas a partir das cidades-chave.</p>
+          </div>
+        </div>
+        <!-- IMAGEM · PROMPT: Ônibus urbano de uma cidade do Paraná com adesivagem (busdoor) da campanha em verde e amarelo, rua movimentada, luz do dia, fotografia realista. -->
+        <div class="img-slot"><img src="img/ia/17-busdoor-umuarama-original.jpg" alt=""></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 20 · DIVISOR: AÇÕES PROPOSTAS -->
+    <section class="slide lime">
+      <img class="fx edge-r" src="img/confetti-dir.png" alt="">
+      <div class="div-wrap">
+        <div class="div-title">
+          <span class="eyebrow">Ações propostas</span>
+          <h2>Quatro <span class="hi">conexões</span> para 2027</h2>
+          <p>Cada conexão tem objetivo, jeito de acontecer, frentes e resultado esperado.</p>
+        </div>
+        <div class="tiles">
+          <div class="tile">
+            <!-- IMAGEM · PROMPT (Associados): Associados de uma cooperativa em evento em agência, conversando com uma entidade, ambiente acolhedor, luz quente. -->
+            <img src="img/ia/18-conexao-associados.jpg" alt="">
+            <div class="t-in"><div class="num">1</div><h3>Associados</h3><p>Mostrar que também fazem parte do impacto.</p></div>
+          </div>
+          <div class="tile">
+            <!-- IMAGEM · PROMPT (Comunidade): Voluntário recebendo reconhecimento em um evento comunitário, aplausos, bandeirinhas, luz de fim de tarde. -->
+            <img src="img/ia/19-conexao-comunidade.jpg" alt="">
+            <div class="t-in"><div class="num">2</div><h3>Comunidade</h3><p>Reconhecer quem já faz a diferença.</p></div>
+          </div>
+          <div class="tile">
+            <!-- IMAGEM · PROMPT (Colaboradores): Equipe de colaboradores reunida, sorrindo, em um escritório de cooperativa com cartaz da campanha ao fundo. -->
+            <img src="img/ia/20-conexao-colaboradores.jpg" alt="">
+            <div class="t-in"><div class="num">3</div><h3>Colaboradores</h3><p>Manter a campanha viva por dentro.</p></div>
+          </div>
+          <div class="tile">
+            <!-- IMAGEM · PROMPT (Entidades): Equipe de captação gravando um vídeo em uma entidade com câmera profissional, crianças ao fundo, luz natural. -->
+            <img src="img/ia/21-conexao-entidades.jpg" alt="">
+            <div class="t-in"><div class="num">4</div><h3>Entidades</h3><p>Aproveitar o acervo e captar com critério.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 21 · CONEXÃO COM ASSOCIADOS (formato 2026) -->
+    <section class="slide">
+      <span class="eyebrow">Ações propostas · 1. Conexão com associados <span class="st mantem">Mantém</span></span>
+      <div class="ad">
+        <div class="col">
+          <div class="blk"><h4>Objetivo da ação</h4><p>Aproximar os associados da Campanha União Solidária, mostrando que eles também fazem parte desse impacto por meio da cooperativa. A ideia é reforçar pertencimento, dar visibilidade aos resultados locais e tornar mais claro o valor social gerado pela campanha em cada cidade.</p></div>
+          <div class="blk"><h4>Como a ação acontece</h4><p>Criar espaços dentro de eventos já realizados pelo Sicredi com associados para apresentar a campanha, compartilhar os resultados alcançados no município e trazer entidades beneficiadas para contar, em primeira pessoa, como esse apoio se transforma em impacto real na comunidade.</p></div>
+        </div>
+        <div class="blk"><h4>Frentes sugeridas</h4>
+          <ul>
+            <li>Inserir a Campanha União Solidária na agenda de eventos e encontros das áreas do Sicredi.</li>
+            <li>Levar uma entidade da cidade para apresentar seu projeto e compartilhar depoimento.</li>
+            <li>Apresentar os números já arrecadados no município, reforçando o impacto local da campanha.</li>
+            <li>Liberar o arrecadômetro em cada agência, dando visibilidade contínua aos resultados.</li>
+            <li>Participar de momentos de prestação de contas trimestral com os coordenadores, conectando a campanha aos resultados institucionais.</li>
+          </ul>
+        </div>
+        <div class="blk res"><h4>Resultado esperado</h4><p>Ampliar o conhecimento dos associados sobre a campanha, fortalecer seu vínculo com a causa e aumentar a percepção de que eles também contribuem para a transformação social gerada pela cooperativa.</p></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 22 · EVENTOS: MATERIAIS-BASE -->
+    <section class="slide alt">
+      <span class="eyebrow">Eventos e assembleias <span class="st novo">Novo</span></span>
+      <h2 class="s-title">Materiais-base para <span class="hi">usar onde a campanha for.</span></h2>
+      <div class="grid g3">
+        <div class="card"><div class="big">1</div><h3>Vídeo institucional dos 10 anos</h3><p>Celebrativo, para abrir eventos e assembleias.</p></div>
+        <div class="card"><div class="big">2</div><h3>Apresentação atualizada de resultados</h3><p>Números da campanha, prontos para adaptar por cidade.</p></div>
+        <div class="card"><div class="big">3</div><h3>Banners para agências</h3><p>Já previstos, com a identidade do KV 2027.</p></div>
+      </div>
+      <div class="note"><b>Regra:</b> a agenda de eventos não está fechada. Produzimos a base primeiro e adaptamos só quando houver data, cidade e necessidade confirmadas.</div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 23 · ARRECADÔMETRO -->
+    <section class="slide">
+      <span class="eyebrow">Arrecadômetro e histórico <span class="st ajusta">Ajusta</span></span>
+      <h2 class="s-title">Resultado local, <span class="hi">visível e atualizado.</span></h2>
+      <p class="s-lead">Para o início de 2027: evoluir o histórico de arrecadação por município e agência e um arrecadômetro mais utilizável.</p>
+      <div class="flow">
+        <div class="step"><b>1</b><h3>Definir o formato</h3><p>TV, totem, cartaz atualizado ou painel digital.</p></div>
+        <div class="arr">→</div>
+        <div class="step"><b>2</b><h3>Fonte e frequência</h3><p>De onde vêm os dados e quando atualizam.</p></div>
+        <div class="arr">→</div>
+        <div class="step"><b>3</b><h3>Layout padrão</h3><p>Um modelo visual único para todas as agências.</p></div>
+        <div class="arr">→</div>
+        <div class="step"><b>4</b><h3>Piloto e expansão</h3><p>Primeiro em agências-piloto, depois nas demais.</p></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 24 · CONEXÃO COM A COMUNIDADE (formato 2026) -->
+    <section class="slide alt">
+      <span class="eyebrow">Ações propostas · 2. Conexão com a comunidade <span class="st mantem">Mantém</span></span>
+      <div class="ad">
+        <div class="col">
+          <div class="blk"><h4>Objetivo da ação</h4><p>Fortalecer a conexão da Campanha União Solidária com a comunidade por meio do reconhecimento de pessoas que já contribuem com as entidades e com a transformação social no território.</p></div>
+          <div class="blk"><h4>Como a ação acontece</h4><p>Desenvolver uma campanha de reconhecimento e premiação para voluntários, com indicações realizadas pelas próprias entidades, valorizando histórias reais de dedicação e mobilização social. A iniciativa pode acontecer em formato on-line e off-line, criando um movimento de engajamento em torno de quem faz a diferença no dia a dia das causas.</p></div>
+        </div>
+        <div class="blk"><h4>Frentes sugeridas</h4>
+          <ul>
+            <li>Estruturar uma campanha de indicação de voluntários feita pelas entidades participantes.</li>
+            <li>Avaliar o desenvolvimento de uma plataforma ou mecanismo de cadastro, com lógica semelhante a links de indicação ou afiliados, para facilitar a participação.</li>
+            <li>Criar uma mecânica de reconhecimento que possa gerar visibilidade tanto para os voluntários quanto para as entidades.</li>
+            <li>Utilizar a ação como forma de ampliar o alcance da campanha na comunidade e atrair novos públicos para perto da causa.</li>
+          </ul>
+        </div>
+        <div class="blk res"><h4>Resultado esperado</h4><p>Gerar maior proximidade com a comunidade, ampliar o reconhecimento público da campanha e valorizar pessoas que ajudam a transformar a realidade local ao lado das entidades.</p><p style="margin-top:8px;color:#ecd9b8"><b style="color:#fff">Depende de confirmação:</b> a comunicação do reconhecimento só se desdobra depois de confirmadas as regras, os prêmios e os critérios.</p></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 25 · CONEXÃO COM COLABORADORES (formato 2026) -->
+    <section class="slide">
+      <span class="eyebrow">Ações propostas · 3. Conexão com colaboradores <span class="st mantem">Mantém</span></span>
+      <div class="ad">
+        <div class="col">
+          <div class="blk"><h4>Objetivo da ação</h4><p>Fortalecer o engajamento interno com a Campanha União Solidária, reforçando para os colaboradores a relevância do seu papel e o impacto concreto gerado por essa mobilização.</p></div>
+          <div class="blk"><h4>Como a ação acontece</h4><p>Criar uma rotina de comunicação interna voltada às conquistas da campanha, compartilhando resultados, histórias das entidades e conteúdos que aproximem os colaboradores do propósito social da iniciativa.</p></div>
+        </div>
+        <div class="blk"><h4>Frentes sugeridas</h4>
+          <ul>
+            <li>Incluir no editorial de comunicação os principais comunicados e marcos da campanha voltados ao time interno.</li>
+            <li>Criar uma trilha editorial focada em impacto, com números, resultados e depoimentos das entidades.</li>
+            <li>Compartilhar histórias reais e conquistas da campanha nos canais internos, reforçando o valor dessa atuação coletiva.</li>
+            <li>Utilizar perfis institucionais, como o "Poder dos Juntos", para ampliar a visibilidade dessas narrativas.</li>
+          </ul>
+        </div>
+        <div class="blk res"><h4>Resultado esperado</h4><p>Aumentar o sentimento de pertencimento dos colaboradores, manter a campanha viva no ambiente interno e fortalecer a percepção de que eles são parte essencial dessa transformação.</p></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 26 · CONEXÃO COM AS ENTIDADES / CAPTAÇÃO (formato 2026, ajustado) -->
+    <section class="slide alt">
+      <span class="eyebrow">Ações propostas · 4. Conteúdo das entidades <span class="st ajusta">Ajusta</span></span>
+      <div class="ad">
+        <div class="col">
+          <div class="blk"><h4>Objetivo da ação</h4><p>Qualificar a narrativa da Campanha União Solidária por meio de vídeos e imagens das entidades, fortalecendo a forma como seus projetos são apresentados em todos os canais.</p></div>
+          <div class="blk"><h4>Como a ação acontece</h4><p>Reaproveitar e recortar o acervo já captado e, quando houver escopo e demanda validados, captar novos conteúdos durante as visitas às entidades, registrando espaços, projetos, rotinas e histórias reais de impacto.</p></div>
+        </div>
+        <div class="blk"><h4>Frentes sugeridas</h4>
+          <ul>
+            <li>Priorizar o reaproveitamento e os recortes do acervo já captado.</li>
+            <li>Validar escopo e demanda antes de cada nova captação.</li>
+            <li>Usar o roteiro-base já aprovado para garantir unidade visual e narrativa.</li>
+            <li>Produzir conteúdos que se desdobrem para redes sociais, site, mídia paga, apresentações e materiais institucionais.</li>
+            <li>Incentivar colabs orgânicas das entidades sobre a venda de cupons, com exemplos e critério editorial.</li>
+          </ul>
+        </div>
+        <div class="blk res"><h4>Resultado esperado</h4><p>Elevar a qualidade da comunicação da campanha, dar mais visibilidade ao trabalho das entidades e criar um acervo de conteúdos capaz de fortalecer o impacto da narrativa em todos os pontos de contato.</p></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 27 · ACESSO DA ENTIDADE E SISTEMA -->
+    <section class="slide">
+      <span class="eyebrow">Acesso da entidade e sistema <span class="st novo">Novo</span></span>
+      <h2 class="s-title">Um caminho simples <span class="hi">do WhatsApp ao cadastro.</span></h2>
+      <div class="flow">
+        <div class="step"><b>1</b><h3>WhatsApp</h3><p>Conduz a entidade ao site. Sem registro direto pelo aplicativo.</p></div>
+        <div class="arr">→</div>
+        <div class="step"><b>2</b><h3>Cadastro no site</h3><p>Acesso simplificado e responsivo.</p></div>
+        <div class="arr">→</div>
+        <div class="step"><b>3</b><h3>Área da entidade</h3><p>Separada do painel administrativo.</p></div>
+      </div>
+      <div class="note"><b>Tutoriais depois do sistema:</b> materiais e tutoriais só são adaptados depois da confirmação das telas e dos fluxos do novo site.</div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 28 · KV 2027 (aprovado) -->
+    <section class="slide kv-full" data-channel="kv">
+      <img class="kvimg" src="img/kv-aprovado.jpg" alt="KV 2027 aprovado: 10 anos, premiando quem faz o bem. 80 prêmios: 2 Polos Track, 20 iPhones 17, 4 scooters, 20 TVs e 34 air fryers.">
+      <div class="slide-foot"><span>KV 2027 · versão aprovada</span><span>Regras de sorteio em confirmação</span></div>
+    </section>
+
+    <!-- 29 · CALENDÁRIO (timeline) -->
+    <section class="slide alt" data-channel="calendario">
+      <span class="eyebrow">Calendário 2027 <span class="st conf">Datas propostas</span></span>
+      <h2 class="s-title" style="font-size:36px;margin-bottom:10px">Mesmo ritmo de 2026, <span class="hi">ajustado para 2027.</span></h2>
+      <div class="gantt">
+        <div class="g-axis"><span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span><span>Jun</span><span>Jul</span><span>Ago</span><span>Set</span><span>Out</span><span>Nov</span><span>Dez</span></div>
+        <div class="g-body">
+          <div class="g-lane">Campanha · datas do edital 2026 levadas para 2027</div>
+          <div class="g-row"><div class="g-bar camp" style="left:2.74%;width:21.92%"><b>Cadastro de entidades e projetos</b></div><span class="g-note" style="left:25.3%">11/01 a 31/03</span></div>
+          <div class="g-row"><div class="g-bar camp" style="left:2.74%;width:87.4%"><b>Vendas e cadastro de cupons</b><i>11/01 a 25/11</i></div></div>
+          <div class="g-row"><div class="g-bar camp dots" style="left:17.53%;width:69.32%"><b>Sorteios quinzenais</b><i>06/03 a 13/11</i></div></div>
+          <div class="g-row"><span class="g-star" style="left:90.68%"></span><span class="g-note r" style="right:calc(100% - 90.68% + 22px)">Sorteio final · 27/11</span></div>
+          <div class="g-row"><div class="g-bar camp" style="left:90.68%;width:3.84%"></div><span class="g-note r" style="right:calc(100% - 90.68% + 8px)">Prestação de contas e devolução de cupons · até 11/12</span></div>
+          <div class="g-row"><span class="g-arrow" style="left:100%">→</span><span class="g-note r" style="right:calc(0% + 28px)">Repasse das vendas on-line · jan/2028</span></div>
+          <div class="g-lane com">Comunicação · proposta</div>
+          <div class="g-row"><div class="g-bar com" style="left:2.74%;width:21.92%"><b>Base</b></div><span class="g-note" style="left:25.3%">Newsletter, YouTube, materiais-base, arrecadômetro e histórico por município</span></div>
+          <div class="g-row"><div class="g-bar com" style="left:24.66%;width:75.34%"><b>Visitas e captação sob demanda · eventos conforme a agenda fechar</b></div></div>
+          <div class="g-row"><div class="g-bar com" style="left:2.74%;width:97.26%"><b>Mídia paga e offline · prestação de contas trimestral · sorteios como pauta</b></div></div>
+          <div class="g-row"><div class="g-bar com" style="left:74.9%;width:15.24%"></div><span class="g-note r" style="right:calc(100% - 74.9% + 10px)">Reforço de mídia na reta final</span></div>
+          <div class="g-row"><div class="g-bar com ghost" style="left:30%;width:70%"><b>Após confirmações: premiações, reconhecimento de voluntários e tutoriais</b><i>sem data</i></div></div>
+        </div>
+      </div>
+      <p class="small" style="margin-top:8px">Execução dos projetos: até 3 meses após o fim da campanha. As datas de 2027 valem até o edital 2027 sair.</p>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span><span>Base: edital 2026</span></div>
+    </section>
+
+    <!-- 30 · CALENDÁRIO (tabela) -->
+    <section class="slide alt" data-channel="calendario">
+      <span class="eyebrow">Calendário 2027 · em tabela <span class="st conf">Datas propostas</span></span>
+      <h2 class="s-title" style="font-size:34px;margin-bottom:4px">Mesmo ritmo de 2026, <span class="hi">ajustado para 2027.</span></h2>
+      <div class="cal">
+        <div>
+          <h3>Campanha · edital 2026 → proposta 2027</h3>
+          <table class="t tight">
+            <thead><tr><th>Marco</th><th>2026</th><th>2027</th></tr></thead>
+            <tbody>
+              <tr><td>Cadastro de entidades e projetos</td><td>12/01 a 31/03</td><td>11/01 a 31/03</td></tr>
+              <tr><td>Vendas e cadastro de cupons</td><td>12/01 a 25/11</td><td>11/01 a 25/11</td></tr>
+              <tr><td>Sorteios quinzenais</td><td>07/03 a 14/11</td><td>06/03 a 13/11</td></tr>
+              <tr><td>Sorteio final</td><td>28/11</td><td>27/11</td></tr>
+              <tr><td>Lançamentos só p/ prestação de contas e devolução de cupons</td><td>até 12/12</td><td>até 11/12</td></tr>
+              <tr><td>Repasse das vendas on-line</td><td>jan/2027</td><td>jan/2028</td></tr>
+              <tr><td>Execução dos projetos</td><td colspan="2">até 3 meses após o fim da campanha</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Comunicação · proposta</h3>
+          <div class="tl">
+            <div class="tl-item"><b>Janeiro a março</b><span>Inscrições, newsletter com pop-up, YouTube em playlists, materiais-base, arrecadômetro e histórico por município.</span></div>
+            <div class="tl-item"><b>A partir de abril</b><span>Visitas e captação sob demanda; eventos conforme a agenda fechar.</span></div>
+            <div class="tl-item"><b>Ao longo do ano</b><span>Mídia paga e offline, prestação de contas trimestral, sorteios quinzenais como pauta.</span></div>
+            <div class="tl-item"><b>Outubro e novembro</b><span>Reforço de mídia para a reta final e o último sorteio.</span></div>
+            <div class="tl-item"><b>Após confirmações</b><span>Comunicação de premiações e reconhecimento; tutoriais do novo sistema.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span><span>Datas de 2027 valem até o edital 2027 sair</span></div>
+    </section>
+
+    <!-- 30 · DEPENDÊNCIAS -->
+    <section class="slide">
+      <span class="eyebrow">Dependências</span>
+      <h2 class="s-title">O que precisa ser <span class="hi">confirmado para avançar.</span></h2>
+      <div class="rows" style="margin-top:14px">
+        <div class="row"><div class="n">1</div><div><strong>Telas e fluxos do novo site e sistema</strong><span>Destravam os tutoriais, a revisão do YouTube e os materiais de sistema.</span></div></div>
+        <div class="row"><div class="n">2</div><div><strong>Regras, prêmios e critérios de reconhecimento</strong><span>Destravam a comunicação de premiações e do reconhecimento de voluntários.</span></div></div>
+        <div class="row"><div class="n">3</div><div><strong>Agenda de eventos</strong><span>Com data, cidade e necessidade confirmadas, adaptamos os materiais-base.</span></div></div>
+        <div class="row"><div class="n">4</div><div><strong>Escopo e demanda de novas captações</strong><span>Antes disso, o acervo já captado é a prioridade.</span></div></div>
+        <div class="row"><div class="n">5</div><div><strong>Decisão sobre TikTok e novo modelo para influenciadores</strong><span>Só entram como frente depois de validados.</span></div></div>
+      </div>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 31 · META E INDICADORES -->
+    <section class="slide alt">
+      <span class="eyebrow">Meta e indicadores</span>
+      <h2 class="s-title">Uma meta, <span class="hi">e como vamos acompanhar.</span></h2>
+      <div class="card hl" style="padding:20px 26px;display:flex;align-items:center;gap:30px;margin-top:10px">
+        <div class="big" style="font-size:54px;margin:0;white-space:nowrap">R$ 10 mi</div>
+        <p style="font-size:15px;color:#e4e4dc">Meta de arrecadação 2027. Em 2026, o parcial até aqui é de R$ 7.546.220.</p>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><b>Arrecadação</b><span>Total e por município e agência</span></div>
+        <div class="kpi"><b>Entidades</b><span>Participantes e cidades com comunicação local ativa</span></div>
+        <div class="kpi"><b>Arrecadômetro</b><span>Agências com o painel ativo</span></div>
+        <div class="kpi"><b>Eventos</b><span>Com inserção da campanha e associados impactados</span></div>
+        <div class="kpi"><b>Newsletter</b><span>Base de contatos e aberturas</span></div>
+        <div class="kpi"><b>Conteúdo</b><span>Peças publicadas e alcance (Instagram, YouTube, site)</span></div>
+        <div class="kpi"><b>Voluntários</b><span>Indicados e entidades valorizadas</span></div>
+        <div class="kpi"><b>Mídia</b><span>Cidades-chave ativadas</span></div>
+      </div>
+      <p class="small" style="margin-top:14px">Metas numéricas de cada indicador entram na versão final.</p>
+      <div class="slide-foot"><span>Plano de Comunicação 2027</span></div>
+    </section>
+
+    <!-- 32 · ENCERRAMENTO -->
+    <section class="slide lime bg-fim">
+      <img class="fx edge-l" src="img/confetti-esq.png" alt="">
+      <div class="end">
+        <div class="art"><img src="img/medalha-luzes-limpa.png" alt="10 anos · Premiando quem faz o bem"></div>
+        <div>
+          <img class="logo" src="img/logo-us-kv.png" alt="União Solidária · Transformando Vidas">
+          <h2>Dar força a <span class="hi">quem nunca deixa de cuidar.</span></h2>
+          <div class="brandline">
+            <div class="grp"><small>Realização</small><div class="logos"><img class="dx" src="img/logo-dexis-instituto-kv.png" alt="Dexis Instituto"></div></div>
+            <div class="grp"><small>Apoio</small><div class="logos">
+              <img src="img/logo-cocamar-claro.png" alt="Instituto Cocamar">
+              <img src="img/logo-sicredi-dexis-claro.png" alt="Sicredi Dexis">
+              <img src="img/logo-canal-verde-claro.png" alt="Canal Verde">
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<div class="deck-controls">
+  <button id="prevBtn" aria-label="Anterior">‹</button>
+  <span id="counter">1 / 33</span>
+  <button id="nextBtn" aria-label="Próximo">›</button>
+  <button id="gearBtn" class="gear-btn" aria-label="Configurações">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+  </button>
+  <div class="gear-panel" id="gearPanel" hidden>
+    <div class="gear-panel-title">Ocultar na apresentação</div>
+    <label class="gear-toggle"><input type="checkbox" id="toggle-midia"> Mídia paga, offline e praças</label>
+    <label class="gear-toggle"><input type="checkbox" id="toggle-kv"> KV 2027 e 80 prêmios</label>
+    <label class="gear-toggle"><input type="checkbox" id="toggle-calendario"> Calendário 2027 (timeline e tabela)</label>
+  </div>
+</div>
+<div class="ch-toast" id="chToast"></div>
+
+<script>
+(function(){
+  const allSlides = Array.from(document.querySelectorAll(".slide"));
+  const stage = document.getElementById("stage");
+  const counterEl = document.getElementById("counter");
+  const toastEl = document.getElementById("chToast");
+  const LABELS = {"midia":"Mídia paga, offline e praças","kv":"KV 2027 e 80 prêmios","calendario":"Calendário 2027"};
+  const hidden = new Set();
+  let slides = allSlides, idx = 0, toastTimer = null;
+
+  function resize(){
+    const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    stage.style.transform = "translate(-50%,-50%) scale(" + scale + ")";
+  }
+  function show(i){
+    idx = Math.max(0, Math.min(slides.length - 1, i));
+    allSlides.forEach((s) => s.classList.toggle("active", s === slides[idx]));
+    counterEl.textContent = (idx + 1) + " / " + slides.length;
+    try { history.replaceState(null, "", "#" + (allSlides.indexOf(slides[idx]) + 1)); } catch (e) {}
+  }
+  function refresh(){
+    const current = slides[idx];
+    slides = allSlides.filter((s) => !s.classList.contains("ch-hidden"));
+    const keep = slides.indexOf(current);
+    show(keep >= 0 ? keep : 0);
+  }
+  function toast(msg){
+    toastEl.textContent = msg; toastEl.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => toastEl.classList.remove("show"), 1800);
+  }
+  function toggle(name){
+    const hiding = !hidden.has(name);
+    if (hiding) hidden.add(name); else hidden.delete(name);
+    document.querySelectorAll('[data-channel="' + name + '"]').forEach((el) => el.classList.toggle("ch-hidden", hiding));
+    refresh();
+    toast(LABELS[name] + (hiding ? " ocultado" : " visível novamente"));
+    Object.keys(LABELS).forEach((k) => { const cb = document.getElementById("toggle-" + k); if (cb) cb.checked = hidden.has(k); });
+  }
+
+  document.getElementById("prevBtn").addEventListener("click", () => show(idx - 1));
+  document.getElementById("nextBtn").addEventListener("click", () => show(idx + 1));
+  document.addEventListener("keydown", (e) => {
+    if (["ArrowRight","PageDown"," "].includes(e.key)) { show(idx + 1); e.preventDefault(); }
+    if (["ArrowLeft","PageUp"].includes(e.key)) { show(idx - 1); e.preventDefault(); }
+    if (e.key === "Home") show(0);
+    if (e.key === "End") show(slides.length - 1);
+  });
+  const gearBtn = document.getElementById("gearBtn"), gearPanel = document.getElementById("gearPanel");
+  gearBtn.addEventListener("click", (e) => { e.stopPropagation(); gearPanel.hidden = !gearPanel.hidden; });
+  document.addEventListener("click", (e) => { if (!gearPanel.hidden && !gearPanel.contains(e.target) && e.target !== gearBtn) gearPanel.hidden = true; });
+  Object.keys(LABELS).forEach((k) => { const cb = document.getElementById("toggle-" + k); if (cb) cb.addEventListener("change", () => toggle(k)); });
+
+  window.addEventListener("resize", resize);
+  resize();
+  const start = parseInt((location.hash || "").replace("#", ""), 10);
+  show(Number.isFinite(start) ? start - 1 : 0);
+})();
+</script>
+</body>
+</html>
