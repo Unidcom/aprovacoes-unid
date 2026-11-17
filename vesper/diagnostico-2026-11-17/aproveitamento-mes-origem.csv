@@ -1,0 +1,44 @@
+month;source_dimension;origin;conversations;interaction;proposal_minimum;visit_minimum;won;unfit
+2026-08;origin;E-mail;3;2;2;1;0;0
+2026-08;origin;Facebook;9;7;5;1;1;0
+2026-08;origin;Facebook + Meta Ads;2;0;0;0;0;0
+2026-08;origin;Google;4;0;0;0;0;2
+2026-08;origin;Ligação;3;3;3;0;2;0
+2026-08;origin;Meta Ads;3;2;3;2;1;0
+2026-08;origin;Site;29;16;12;2;1;6
+2026-08;origin;WhatsApp;20;17;14;1;0;1
+2026-09;origin;Facebook;6;2;1;0;1;0
+2026-09;origin;Google;5;2;1;0;0;0
+2026-09;origin;Instagram;8;7;1;0;0;0
+2026-09;origin;Ligação;2;2;0;1;0;0
+2026-09;origin;Meta Ads;1;1;0;0;0;1
+2026-09;origin;Site;20;14;3;0;0;5
+2026-09;origin;WhatsApp;15;15;2;0;0;1
+2026-10;origin;Facebook;15;10;3;0;1;0
+2026-10;origin;Ligação;1;1;1;0;0;0
+2026-10;origin;Meta Ads;2;2;0;0;0;1
+2026-10;origin;Site;52;30;9;1;0;11
+2026-10;origin;WhatsApp;19;13;3;2;0;3
+2026-11;origin;Facebook;2;0;0;0;0;0
+2026-11;origin;Google;1;1;0;1;0;0
+2026-11;origin;Instagram;1;0;0;0;0;0
+2026-11;origin;Ligação;2;2;1;0;0;0
+2026-11;origin;Site;24;12;8;2;0;4
+2026-11;origin;Site + WhatsApp;1;1;0;0;0;0
+2026-11;origin;WhatsApp;20;16;6;4;0;2
+2026-08;tracked_origin;Google;33;20;17;4;2;4
+2026-08;tracked_origin;Meta Ads;9;6;6;2;1;0
+2026-08;tracked_origin;Sem rastreio;25;19;16;1;2;1
+2026-08;tracked_origin;Site;6;2;0;0;0;4
+2026-09;tracked_origin;Google;22;11;1;0;0;1
+2026-09;tracked_origin;Meta Ads;6;5;3;0;1;1
+2026-09;tracked_origin;Sem rastreio;24;22;1;1;0;5
+2026-09;tracked_origin;Site;5;5;3;0;0;0
+2026-10;tracked_origin;Google;27;14;4;0;0;5
+2026-10;tracked_origin;Meta Ads;7;6;1;0;1;2
+2026-10;tracked_origin;Sem rastreio;45;28;8;1;0;6
+2026-10;tracked_origin;Site;10;8;3;2;0;2
+2026-11;tracked_origin;Google;10;7;1;2;0;1
+2026-11;tracked_origin;Meta Ads;3;2;1;0;0;0
+2026-11;tracked_origin;Sem rastreio;31;17;9;3;0;4
+2026-11;tracked_origin;Site;7;6;4;2;0;1

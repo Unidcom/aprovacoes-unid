@@ -1,0 +1,15 @@
+{
+  "publication": "public-anonymous",
+  "conversations": 270,
+  "orders": 7,
+  "unfit": 37,
+  "tabs": 12,
+  "private_transcripts_published": false,
+  "private_raw_sources_published": false,
+  "source_report_sha256": "b7efa7aed71c20dd042830f84c8100e7edf2e8e0fdc39642c6f4faa5fb67bf2e",
+  "sales_cycle": {
+    "median_days": 10,
+    "mean_days": 15.714285714285714
+  },
+  "remote_system_changes": false
+}

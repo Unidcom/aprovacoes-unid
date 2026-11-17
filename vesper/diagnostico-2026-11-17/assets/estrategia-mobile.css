@@ -1,0 +1,6 @@
+@media(max-width:700px){
+ .sidebar #navigation{display:flex;flex-direction:row;flex-wrap:nowrap;gap:8px;overflow-x:auto;overflow-y:hidden;padding-bottom:10px;scrollbar-width:none}
+ .sidebar #navigation button{display:inline-flex;flex:0 0 auto;width:auto;flex-direction:row;gap:7px;align-items:center;white-space:nowrap;font-size:11px;padding:10px 12px}
+ .sidebar #navigation .strategy-nav-label{display:none}
+ .sidebar #navigation button svg{width:15px;height:15px}
+}

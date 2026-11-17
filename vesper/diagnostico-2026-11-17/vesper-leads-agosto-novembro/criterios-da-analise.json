@@ -1,0 +1,13 @@
+{
+  "public_anonymous_version": true,
+  "exclusions_preserved": 35,
+  "count": 270,
+  "method": {
+    "cutoff": "2026-11-17T23:59:59-03:00",
+    "cohort": "Mês atribuído conforme as listas e a regra de consolidação aceita; não equivale necessariamente à primeira mensagem ou à data do desfecho.",
+    "interaction": "Retorno com pelo menos três palavras e 18 caracteres úteis após mensagem da Vésper, desde o início do mês atribuído até o corte disponível. Saudações, respostas breves, links isolados, formulários e automações reconhecidas são excluídos. Indicador automatizado e conservador de conteúdo textual; não é detecção universal de bots, SLA humano ou qualificação comercial.",
+    "milestones": "Mínimos identificados na revisão das análises de caso preservadas, com referências originais. Proposta inclui estimativa personalizada/dimensionamento; não comprova envio de PDF. Visita inclui somente realização relatada, não convite. um contato independentes no histórico: não formam um funil sequencial completo.",
+    "fit": "37 demandas sem perfil documentadas. As demais não estão automaticamente qualificadas. Ausência de informação não equivale a demanda compatível.",
+    "limitations": "Áudios, imagens, PDFs e ligações não interpretados. Vínculos prováveis continuam identificados. Não há medição comparável de maturação nem cadastro bruto conciliado do HubSpot; não calcular conversão de cadastro bruto ou custo por qualificado a partir desta base."
+  }
+}
