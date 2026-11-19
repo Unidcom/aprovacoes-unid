@@ -1,0 +1,61 @@
+{
+  "metodo": "Páginas originais abertas separadamente na web nesta execução. Relatório local. O script Python check_links.py não foi executado.",
+  "fontes": [
+    {
+      "url": "https://bibliosus.saude.gov.br/uma-so-saude-uma-so-acao-vamos-prevenir-a-ram-agora-18-a-24-11-semana-mundial-de-conscientizacao-sobre-resistencia-a-antimicrobianos-2026/",
+      "publicado_em": "2026-11-18",
+      "titulo": "Semana Mundial coloca a prevenção de infecções em pauta",
+      "resultado": "página original aberta"
+    },
+    {
+      "url": "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/anvisa-abre-consultas-dirigidas-sobre-produtos-componentes-do-sangue-para-fins-terapeuticos-nao-transfusionais",
+      "publicado_em": "2026-11-17",
+      "titulo": "Anvisa recebe contribuições sobre produtos derivados do sangue",
+      "resultado": "página original aberta"
+    },
+    {
+      "url": "https://www.gov.br/saude/pt-br/assuntos/noticias/2026/novembro/ministerio-da-saude-apresenta-quatro-projetos-para-acelerar-o-desenvolvimento-de-novos-tratamentos-e-tecnologias-para-o-sus",
+      "publicado_em": "2026-11-17",
+      "titulo": "Acelera SUS inclui projeto de dispositivo para diagnóstico em câncer de boca",
+      "resultado": "página original aberta"
+    },
+    {
+      "url": "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/laboratorios-tem-ate-30-12-para-participar-da-avaliacao-nacional-dos-laboratorios-de-microbiologia",
+      "publicado_em": "2026-11-13",
+      "titulo": "Avaliação nacional de laboratórios de microbiologia recebe participações até 30 de dezembro",
+      "resultado": "página original aberta"
+    },
+    {
+      "url": "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/agencia-atualizara-dados-do-cnes-no-cadastro-anvisa-nesta-terca-17-11",
+      "publicado_em": "2026-11-16",
+      "titulo": "Anvisa atualiza dados de estabelecimentos a partir do CNES",
+      "resultado": "página original aberta"
+    },
+    {
+      "url": "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/anvisa-determina-recolhimento-de-anestesico-e-proibe-propaganda-de-produtos-de-cannabis",
+      "publicado_em": "2026-11-13",
+      "titulo": "Anvisa determina recolhimento de anestésico",
+      "resultado": "página original aberta"
+    },
+    {
+      "url": "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/venda-de-suplementos-alimentares-irregulares-e-suspensa-pela-anvisa",
+      "publicado_em": "2026-11-17",
+      "titulo": "Anvisa suspende a venda de suplementos alimentares irregulares",
+      "resultado": "página original aberta"
+    },
+    {
+      "url": "https://www.gov.br/saude/pt-br/assuntos/noticias/2026/novembro/novas-tecnologias-no-sus-fortalecem-autonomia-sanitaria-do-brasil-reitera-padilha-durante-congresso-da-rebrats",
+      "publicado_em": "2026-11-16",
+      "titulo": "Congresso da Rebrats discute avaliação e incorporação de tecnologias no SUS",
+      "resultado": "página original aberta"
+    },
+    {
+      "url": "https://sprotection.com.br/produto/kits-descartaveis/",
+      "resultado": "página original aberta"
+    }
+  ],
+  "avisos": [
+    "Três ilustrações editoriais em assets locais. A publicação é necessária para que o renderer de e-mail aceite essas imagens.",
+    "Variáveis Brevo no HTML e no texto simples são processadas pela plataforma."
+  ]
+}
