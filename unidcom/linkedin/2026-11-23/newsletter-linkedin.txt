@@ -1,0 +1,36 @@
+SEU FIREWALL PODE ESTAR BARRANDO O GOOGLE — E ISSO CUSTA VENDAS
+
+O Google publicou um guia oficial para reconhecer os agentes de IA que navegam, põem itens no carrinho e fazem reservas a pedido dos usuários e alertou que bloqueios genéricos de bot podem estar barrando esse tráfego antes da conversão.
+
+Até pouco tempo, qualquer tráfego com cara de "agente automatizado" era tratado como suspeito por padrão. No dia 23 de novembro, o Google mexeu nessa conversa: publicou uma página oficial para donos de sites reconhecerem e liberarem o que chama de "Google-Agent".
+
+O QUE É O GOOGLE-AGENT, SEGUNDO O PRÓPRIO GOOGLE
+
+Google-Agent é o nome dado aos agentes de IA hospedados na infraestrutura do Google que navegam na web e executam ações a pedido do usuário. Na lista de situações que o guia manda cobrir estão a busca interna do site, os filtros, as páginas de detalhe de produto, a adição ao carrinho, as reservas e as chamadas às APIs do site. Ou seja: não é um robô de indexação como os crawlers tradicionais. É um agente que percorre a jornada de compra no lugar de uma pessoa.
+
+O Google ainda não diz quais produtos usam esse agente. Mas o guia detalha três formas de validar se uma requisição vem mesmo dele: o cabeçalho User-Agent contendo "Google-Agent", o IP presente em uma lista oficial publicada em arquivo JSON e, quando disponível, uma assinatura criptográfica do protocolo experimental Web Bot Auth.
+
+ONDE O BLOQUEIO ACONTECE
+
+O guia foi publicado justamente para evitar que esse tráfego legítimo seja barrado. Os pontos de atenção são bem concretos: regras amplas que bloqueiam data centers ou "agentes de IA" como categoria rodando antes da exceção para o Google-Agent; CAPTCHA e desafios em JavaScript aparecendo no meio do caminho; e proteções que liberam a página inicial, mas travam a busca interna, o carrinho ou o formulário de reserva. Na prática, sites que reforçaram a segurança contra scraping e bots maliciosos podem estar fechando a porta justamente para o agente que levaria um cliente até a conversão.
+
+O QUE ISSO SIGNIFICA PARA QUEM VENDE ONLINE
+
+Se o seu e-commerce, a sua agência ou o seu provedor de hospedagem usa bloqueio automático de bots, vale revisar as regras agora. Uma lista de IP desatualizada ou um CAPTCHA no lugar errado podem barrar uma compra sem que ninguém perceba, porque esse tipo de perda dificilmente aparece como oportunidade perdida nos relatórios de performance.
+
+As prioridades práticas indicadas pelo Google são três: liberar o Google-Agent verificado nas regras de firewall, CDN e detecção de bots; dispensar CAPTCHA para esse tráfego verificado; e revisar limites de taxa por IP, já que requisições de muitos usuários saem pelo mesmo conjunto de IPs.
+
+NO RADAR DA SEMANA
+
+Duas outras notícias mostram que a forma de medir tráfego e desempenho está mudando mais rápido do que os processos de auditoria. O TikTok lançou uma ferramenta que permite verificar se uma imagem ou vídeo foi criado ou editado com IA, usando a marca d'água digital da própria plataforma. Isso é útil para quem precisa comprovar a autenticidade de conteúdo de campanha ou de criadores. E o Search Engine Journal alertou que parte da queda de rankings registrada em 18 de novembro, com o Core Update de novembro ainda em distribuição, pode ter sido causada por uma falha de coleta de uma ferramenta de rastreamento, e não por uma mudança real do algoritmo. Vale confirmar se os seus dados de ranking vieram completos antes de reagir a uma queda pontual.
+
+POR QUE VALE MEDIR O QUE ESTÁ SENDO BARRADO
+
+Um cliente em potencial barrado por um firewall mal configurado não vira alerta em nenhum painel. Ele simplesmente não converte, e ninguém investiga o motivo. O problema de crescimento nem sempre está na campanha ou na oferta. Às vezes está na porta de entrada do próprio site, numa camada que marketing raramente audita.
+
+CTA: Se você quer entender o que está travando o crescimento do seu negócio, da mídia à porta de entrada do site, agende uma conversa de 30 minutos com a Unidcom: https://calendly.com/unidcom/30min
+
+Fontes:
+- Search Engine Journal (guia do Google-Agent): https://www.searchenginejournal.com/google-publishes-guidance-for-google-agent-crawler/598526/
+- Social Media Today (detector de IA do TikTok): https://www.socialmediatoday.com/news/tiktok-adds-new-ai-transparency-and-parental-controls/875424/
+- Search Engine Journal (dados de ranking e Core Update de novembro): https://www.searchenginejournal.com/check-your-nov-18-rank-data-before-blaming-the-core-update/598449/

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Newsletter LinkedIn — Seu firewall pode estar barrando o Google — e isso custa vendas</title>
+<style>
+  :root { --bg:#f5f6f8; --card:#fff; --ink:#14181f; --muted:#5b6472; --accent:#0A6DBF; --orange:#FF7C1A; --line:#e3e6eb; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.65 -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  .bar { background:#0d1117; color:#fff; padding:12px 16px; font-size:14px; }
+  .bar strong { color:var(--orange); }
+  main { max-width:760px; margin:24px auto 64px; padding:0 16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:28px 32px; }
+  .cover { width:100%; border-radius:10px; display:block; margin:0 0 8px; }
+  .cover-note { color:var(--muted); font-size:13px; margin:0 0 24px; }
+  h1 { font-size:26px; line-height:1.25; margin:0 0 16px; }
+  h2 { font-size:21px; margin:36px 0 10px; padding-top:20px; border-top:1px solid var(--line); }
+  h3 { font-size:18px; margin:26px 0 8px; }
+  img { max-width:100%; height:auto; }
+  a { color:var(--accent); overflow-wrap:anywhere; }
+  code { background:#eef1f5; padding:1px 5px; border-radius:4px; font-size:.9em; overflow-wrap:anywhere; }
+  ul, ol { padding-left:22px; }
+  .links { margin-top:20px; font-size:14px; color:var(--muted); }
+  @media (max-width:600px) { .card { padding:20px 16px; } body { font-size:16px; } }
+</style>
+</head>
+<body>
+<div class="bar">Unidcom · <strong>Newsletter LinkedIn</strong> · edição 2026-11-23 · material para aprovação</div>
+<main>
+<div class="card">
+<img class="cover" src="capa.png" alt="Capa da newsletter do LinkedIn"><p class="cover-note">Capa (16:9). O título é aplicado no editor do LinkedIn na publicação.</p>
+<h1>Newsletter Unidcom para LinkedIn</h1>
+<h2>Tema principal</h2>
+<p>O Google publicou um guia oficial para reconhecer o "Google-Agent", o nome dos agentes de IA hospedados na infraestrutura do Google que navegam, pesquisam, filtram, adicionam itens ao carrinho e fazem reservas em sites a pedido dos usuários. O guia alerta que bloqueios genéricos de bot (CAPTCHA, bloqueio de data center, regras gerenciadas) podem estar barrando esse tráfego legítimo no meio da jornada de compra.</p>
+<h2>Título recomendado</h2>
+<p>Seu firewall pode estar barrando o Google — e isso custa vendas</p>
+<h2>Alternativas de título</h2>
+<ol>
+<li>O agente de IA do Google já põe produtos no carrinho. Seu site deixa?</li>
+<li>Google-Agent: o guia que todo site que vende ou capta leads precisa ler</li>
+<li>Como saber se o seu firewall está fechando a porta para o Google-Agent</li>
+</ol>
+<h2>Chamada de apoio</h2>
+<p>O Google publicou um guia oficial para reconhecer os agentes de IA que navegam, põem itens no carrinho e fazem reservas a pedido dos usuários e alertou que bloqueios genéricos de bot podem estar barrando esse tráfego antes da conversão.</p>
+<h2>Texto da newsletter</h2>
+<p>Até pouco tempo, qualquer tráfego com cara de "agente automatizado" era tratado como suspeito por padrão. No dia 23 de novembro, o Google mexeu nessa conversa: publicou uma página oficial para donos de sites reconhecerem e liberarem o que chama de "Google-Agent".</p>
+<h3>O que é o Google-Agent, segundo o próprio Google</h3>
+<p><img alt="Faixa editorial sobre o guia do Google para reconhecer agentes de IA que navegam e agem em sites a pedido dos usuários" src="noticia-01-630x115.png" /></p>
+<p>Google-Agent é o nome dado aos agentes de IA hospedados na infraestrutura do Google que navegam na web e executam ações a pedido do usuário. Na lista de situações que o guia manda cobrir estão a busca interna do site, os filtros, as páginas de detalhe de produto, a adição ao carrinho, as reservas e as chamadas às APIs do site. Ou seja: não é um robô de indexação como os crawlers tradicionais. É um agente que percorre a jornada de compra no lugar de uma pessoa.</p>
+<p>O Google ainda não diz quais produtos usam esse agente. Mas o guia detalha três formas de validar se uma requisição vem mesmo dele: o cabeçalho User-Agent contendo "Google-Agent", o IP presente em uma lista oficial publicada em arquivo JSON e, quando disponível, uma assinatura criptográfica do protocolo experimental Web Bot Auth.</p>
+<h3>Onde o bloqueio acontece</h3>
+<p>O guia foi publicado justamente para evitar que esse tráfego legítimo seja barrado. Os pontos de atenção são bem concretos: regras amplas que bloqueiam data centers ou "agentes de IA" como categoria rodando antes da exceção para o Google-Agent; CAPTCHA e desafios em JavaScript aparecendo no meio do caminho; e proteções que liberam a página inicial, mas travam a busca interna, o carrinho ou o formulário de reserva. Na prática, sites que reforçaram a segurança contra scraping e bots maliciosos podem estar fechando a porta justamente para o agente que levaria um cliente até a conversão.</p>
+<h3>O que isso significa para quem vende online</h3>
+<p>Se o seu e-commerce, a sua agência ou o seu provedor de hospedagem usa bloqueio automático de bots, vale revisar as regras agora. Uma lista de IP desatualizada ou um CAPTCHA no lugar errado podem barrar uma compra sem que ninguém perceba, porque esse tipo de perda dificilmente aparece como oportunidade perdida nos relatórios de performance.</p>
+<p>As prioridades práticas indicadas pelo Google são três: liberar o Google-Agent verificado nas regras de firewall, CDN e detecção de bots; dispensar CAPTCHA para esse tráfego verificado; e revisar limites de taxa por IP, já que requisições de muitos usuários saem pelo mesmo conjunto de IPs.</p>
+<h3>No radar da semana</h3>
+<p>Duas outras notícias mostram que a forma de medir tráfego e desempenho está mudando mais rápido do que os processos de auditoria. O TikTok lançou uma ferramenta que permite verificar se uma imagem ou vídeo foi criado ou editado com IA, usando a marca d'água digital da própria plataforma. Isso é útil para quem precisa comprovar a autenticidade de conteúdo de campanha ou de criadores. E o Search Engine Journal alertou que parte da queda de rankings registrada em 18 de novembro, com o Core Update de novembro ainda em distribuição, pode ter sido causada por uma falha de coleta de uma ferramenta de rastreamento, e não por uma mudança real do algoritmo. Vale confirmar se os seus dados de ranking vieram completos antes de reagir a uma queda pontual.</p>
+<h3>Por que vale medir o que está sendo barrado</h3>
+<p>Um cliente em potencial barrado por um firewall mal configurado não vira alerta em nenhum painel. Ele simplesmente não converte, e ninguém investiga o motivo. O problema de crescimento nem sempre está na campanha ou na oferta. Às vezes está na porta de entrada do próprio site, numa camada que marketing raramente audita.</p>
+<h2>CTA final</h2>
+<p>Se você quer entender o que está travando o crescimento do seu negócio, da mídia à porta de entrada do site, agende uma conversa de 30 minutos com a Unidcom: https://calendly.com/unidcom/30min</p>
+<h2>Capa da newsletter</h2>
+<h3>Conceito visual</h3>
+<p>A mesma imagem da faixa da notícia: um fluxo de partículas laranja atravessa uma sequência de portas de vidro e para numa última porta azul, fechada. Representa o agente de IA que percorre a jornada no site e é barrado no fim por uma regra de segurança.</p>
+<h3>Texto principal da capa</h3>
+<p>Seu firewall pode estar barrando o Google</p>
+<h3>Texto secundário</h3>
+<p>Newsletter Unidcom</p>
+<h3>Elemento principal</h3>
+<p>Fileira de portas finas de vidro translúcido em perspectiva, atravessada por um fluxo de partículas laranja que para numa porta azul opaca à direita.</p>
+<h3>Composição</h3>
+<p>Faixa horizontal de elementos no centro vertical da imagem, ocupando quase toda a largura; fundo preto acima e abaixo. A placa original (3:1) foi estendida em fundo preto até 16:9, sem cortar as laterais.</p>
+<h3>Espaço para texto</h3>
+<p>Faixas escuras e uniformes no terço superior e no terço inferior, livres para aplicar o título no editor do LinkedIn.</p>
+<h3>Estilo visual</h3>
+<p>Panorama editorial abstrato, estúdio escuro, alto contraste, minimalista; mesma imagem da faixa da notícia.</p>
+<h3>Prompt para geração da imagem</h3>
+<p>Abstract editorial panorama in a dark studio: a row of thin translucent glass gates in perspective along a horizontal line, a stream of small warm orange (#FF7C1A) light particles flowing left to right through the first gates and stopping at a closed, slightly opaque deep-blue gate near the right. Minimal, elegant, high contrast, dark background. No people, no text, letters, numbers, logos, watermarks, padlocks, shields or UI. (Gerada em formato panorâmico e estendida em fundo preto até 16:9.)</p>
+<h2>Imagem gerada</h2>
+<p><code>capa.png</code> (1920x1080, sem texto incorporado). É a mesma imagem da faixa 1 (placa <code>noticia-01-fonte.png</code>, gerada em 24/11/2026 pela CLI do Codex, modelo <code>gpt-6.1-sol</code>), estendida em fundo preto até 16:9 (<code>capa-fonte.png</code>). A capa anterior, com o portal de luz, ficou preservada em <code>capa-anterior-portal-fonte.png</code> e não é mais usada. O título da capa deve ser aplicado no editor do LinkedIn na publicação.</p>
+<h2>Imagens geradas</h2>
+<ul>
+<li>Capa: <code>capa.png</code></li>
+<li>Faixa 1: <img alt="Faixa editorial sobre o guia do Google para reconhecer agentes de IA que navegam e agem em sites a pedido dos usuários" src="noticia-01-630x115.png" /> (630x115, borda inferior <code>#FF7C1A</code>; placa-fonte <code>noticia-01-fonte.png</code>, composição em <code>faixas.html</code>)</li>
+</ul>
+<h2>Links utilizados</h2>
+<ul>
+<li>Fonte principal (Search Engine Journal, guia do Google-Agent): https://www.searchenginejournal.com/google-publishes-guidance-for-google-agent-crawler/598526/</li>
+<li>Contexto (Social Media Today, detector de IA do TikTok): https://www.socialmediatoday.com/news/tiktok-adds-new-ai-transparency-and-parental-controls/875424/</li>
+<li>Contexto (Search Engine Journal, dados de ranking e Core Update de novembro): https://www.searchenginejournal.com/check-your-nov-18-rank-data-before-blaming-the-core-update/598449/</li>
+<li>CTA (reunião de 30 minutos com a Unidcom, mesmo CTA do e-mail): https://calendly.com/unidcom/30min</li>
+</ul>
+<h2>Alterações realizadas</h2>
+<p>Atualização de 24/11/2026:</p>
+<ul>
+<li><strong>CTA trocado.</strong> O diagnóstico de CPL saiu, acompanhando a remoção do banner de CPL da newsletter de e-mail. Entrou o CTA de reunião de 30 minutos que já estava no e-mail. A seção final deixou de mencionar o custo por lead.</li>
+<li><strong>"Compra" removido das afirmações sobre o Google-Agent.</strong> Nem o Google nem a Search Engine Journal dizem que o agente "compra"; a documentação fala em navegar, pesquisar, filtrar, adicionar ao carrinho, reservar e chamar APIs. Título recomendado, alternativas, chamada de apoio, tema principal e texto da capa foram ajustados.</li>
+<li><strong>Seção "Por que isso virou um guia oficial agora" virou "Onde o bloqueio acontece".</strong> Agora ela traz os pontos concretos do guia (ordem das regras, CAPTCHA, bloqueio no meio da jornada), em vez de uma explicação sobre o motivo da publicação.</li>
+<li><strong>Frase sobre perdas que "não aparecem em nenhum relatório" suavizada</strong> para algo que as fontes sustentam.</li>
+<li>Preservados: notícia foco, estrutura, "No radar da semana", conceito e prompt da capa, faixa 1 e links das fontes.</li>
+</ul>
+<h2>Pontos para validação</h2>
+<ul>
+<li>Capa e faixa geradas em 24/11/2026 pela CLI do Codex (o MCP <code>magnific</code> seguia sem conexão). Vale uma revisão visual antes de publicar.</li>
+<li>O título do destaque 1 na newsletter de <strong>e-mail</strong> ("Agentes de IA já compram em sites…") tem a mesma imprecisão corrigida aqui. Vale decidir se ajusta o e-mail também.</li>
+<li>Os novos bullets do e-mail (Pinterest + Microsoft Ads e tendências de Natal do TikTok) não entraram nesta versão, que segue o padrão de uma notícia foco com contexto breve.</li>
+</ul>
+</div>
+<p class="links">Arquivos: <a href="newsletter-linkedin.md">newsletter-linkedin.md</a> · <a href="newsletter-linkedin.txt">newsletter-linkedin.txt</a></p>
+</main>
+</body>
+</html>
