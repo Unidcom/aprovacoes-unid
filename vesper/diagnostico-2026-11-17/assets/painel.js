@@ -8,11 +8,13 @@ const OUTCOMES=[
   {name:'Em negociação',short:'Negociação',color:'#df9937',bg:'#fcf5e8',ink:'#b48432'},
   {name:'Em aberto',short:'Em aberto',color:'#a4afbd',bg:'#f0f3f7',ink:'#8290a2'},
   {name:'Perdido',short:'Perdido',color:'#ca7277',bg:'#fbf0f1',ink:'#b5636b'},
+  {name:'Perdido por silêncio',short:'Silêncio',color:'#d9a5aa',bg:'#faf3f3',ink:'#9d5b62'},
   {name:'Outro',short:'Outro',color:'#8b78b5',bg:'#f3eff9',ink:'#8b78b5'}
 ];
 const TITLES={overview:['Visão geral','Entenda como os contatos avançam e o que influencia a decisão.'],outcomes:['Desfechos','Compare os resultados de cada mês e de cada origem.'],objections:['Objeções','Explore as barreiras que aparecem nas conversas comerciais.'],losses:['Perdas e outros','Entenda os encerramentos e as situações que pedem outra leitura.'],contacts:['Contatos','Explore cada oportunidade, sua análise e as evidências.']};
 Object.assign(TITLES,{ads:['Anúncios','As peças atuais de Google e Meta, com propostas de alteração.'],segmentation:['Segmentação','Públicos, localizações, interesses e termos configurados, separados das ações propostas.'],landing:['Landing page','O que a página atual entrega e quais melhorias vale testar.'],commercial:['Comercial','Ações para transformar intenção em proposta e contratação.']});
 TITLES.utilization=['Aproveitamento dos leads','Interação observada, confiabilidade dos dados e ações a acompanhar com a cliente.'];
+TITLES.plan=['Plano geral','Todas as ações do relatório, separadas entre o que cabe à Vésper e o que cabe à Unidcom.'];
 TITLES.icp=['ICP e oferta','Cadastro estratégico confrontado com as conversas, com revisões propostas e evidências.'];
 const PATHS={
  overview:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
@@ -35,6 +37,7 @@ const icon=name=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" str
 const nf=new Intl.NumberFormat('pt-BR');
 const percent=(n,total)=>total?((100*n/total).toLocaleString('pt-BR',{maximumFractionDigits:1})+'%'):'0%';
 const count=(rows,category)=>rows.filter(r=>r.outcome===category).length;
+const isLost=r=>r.outcome==='Perdido'||r.outcome==='Perdido por silêncio';
 const byId=new Map(DATA.map(r=>[r.id,r]));
 const originValues=[...new Set(DATA.map(r=>r.origin))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
 TITLES.profile=['Sem perfil','Investigue incompatibilidades da demanda, separadas do resultado comercial.'];
@@ -50,14 +53,14 @@ function empty(title,description='Experimente ampliar ou limpar os filtros para 
 function tally(rows,kind){
   const result=new Map();
   rows.forEach(r=>{
-    const items=kind==='profile'?(r.unfit?[r.fitReason]:[]):kind==='objection'?r.objections:kind==='loss'?(r.outcome==='Perdido'?[r.loss||'Causa não registrada']:[]):(r.outcome==='Outro'?[r.other]:[]);
+    const items=kind==='profile'?(r.unfit?[r.fitReason]:[]):kind==='objection'?r.objections:kind==='loss'?(isLost(r)?[r.loss||'Causa não registrada']:[]):(r.outcome==='Outro'?[r.other]:[]);
     new Set(items).forEach(value=>result.set(value,(result.get(value)||0)+1));
   });
   return [...result.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR'));
 }
 function filterRows(){
   const q=normal(state.search.trim());
-  return DATA.filter(r=>(!state.month||r.month===state.month)&&(!state.origin||r.origin===state.origin)&&(!state.category||r.outcome===state.category)&&(!state.confidence||r.confidence===state.confidence)&&(!state.base||r.base===state.base)&&(!state.profile||(state.profile==='unfit'?r.unfit:!r.unfit))&&(!q||normal(r.name+' '+r.code).includes(q))&&(!state.drill||(state.drill.kind==='profile'?(r.unfit&&r.fitReason===state.drill.value):state.drill.kind==='objection'?r.objections.includes(state.drill.value):state.drill.kind==='loss'?(r.outcome==='Perdido'&&(r.loss||'Causa não registrada')===state.drill.value):(r.outcome==='Outro'&&r.other===state.drill.value))));
+  return DATA.filter(r=>(!state.month||r.month===state.month)&&(!state.origin||r.origin===state.origin)&&(!state.category||r.outcome===state.category)&&(!state.confidence||r.confidence===state.confidence)&&(!state.base||r.base===state.base)&&(!state.profile||(state.profile==='unfit'?r.unfit:!r.unfit))&&(!q||normal(r.name+' '+r.code).includes(q))&&(!state.drill||(state.drill.kind==='profile'?(r.unfit&&r.fitReason===state.drill.value):state.drill.kind==='objection'?r.objections.includes(state.drill.value):state.drill.kind==='loss'?(isLost(r)&&(r.loss||'Causa não registrada')===state.drill.value):(r.outcome==='Outro'&&r.other===state.drill.value))));
 }
 function saveState(){
   const params=new URLSearchParams();
@@ -89,12 +92,12 @@ function badge(category){const c=OUTCOMES.find(o=>o.name===category);return `<sp
 function confidence(r){return `<span class="confidence ${r.confidence==='Média'?'probable':''}">${r.confidence==='Média'?'Provável':'Alta confiança'}</span>`;}
 
 function renderKpis(rows){
-  const wins=count(rows,'Pedido realizado'),advance=count(rows,'Avanço'),negotiations=count(rows,'Em negociação'),losses=count(rows,'Perdido'),probable=rows.filter(r=>r.confidence==='Média').length;
+  const wins=count(rows,'Pedido realizado'),advance=count(rows,'Avanço'),negotiations=count(rows,'Em negociação'),losses=rows.filter(isLost).length,silent=count(rows,'Perdido por silêncio'),probable=rows.filter(r=>r.confidence==='Média').length;
   const items=[
     {label:'Contatos no recorte',number:rows.length,icon:'people',className:'',bottom:`${nf.format(probable)} vínculos prováveis`,pill:`${percent(rows.length,DATA.length)} da base`},
     {label:'Pedidos realizados',number:wins,icon:'check',className:'green',bottom:'do recorte',pill:percent(wins,rows.length)},
     {label:'Em andamento',number:advance+negotiations,icon:'chart',className:'orange',bottom:`${advance} avanços · ${negotiations} negociações`,pill:''},
-    {label:'Perdas documentadas',number:losses,icon:'loss',className:'red',bottom:'do recorte',pill:percent(losses,rows.length)},
+    {label:'Perdas documentadas',number:losses,icon:'loss',className:'red',bottom:`${silent} por silêncio · ${losses-silent} por decisão ou perfil`,pill:percent(losses,rows.length)},
     {label:'Sem perfil confirmado',number:rows.filter(r=>r.unfit).length,icon:'info',className:'orange',bottom:'demanda atual · dimensão independente',pill:percent(rows.filter(r=>r.unfit).length,rows.length)}
   ];
   $('kpis').innerHTML=items.map((k,i)=>`<article class="kpi ${k.className}" data-kpi="${i}"><div class="kpi-top">${k.label}<span class="kpi-icon">${icon(k.icon)}</span></div><div class="kpi-number">${nf.format(k.number)}</div><div class="kpi-bottom">${k.pill?`<span class="pill">${k.pill}</span>`:''}${k.bottom}</div></article>`).join('');
@@ -127,7 +130,7 @@ function ranking(container,rows,kind,limit=Infinity){
     const description=kind==='objection'?'Os textos acessíveis não registram uma barreira explícita para este grupo.':kind==='loss'?'Projetos adiados e contatos em aberto continuam separados das perdas.':'Explore outro mês ou origem para comparar as situações.';
     $(container).innerHTML=empty(title,description);return;
   }
-  const denominator=kind==='profile'?rows.filter(r=>r.unfit).length:kind==='loss'?count(rows,'Perdido'):kind==='other'?count(rows,'Outro'):rows.length;
+  const denominator=kind==='profile'?rows.filter(r=>r.unfit).length:kind==='loss'?rows.filter(isLost).length:kind==='other'?count(rows,'Outro'):rows.length;
   $(container).innerHTML=items.map(([t,n])=>`<button class="rank-row ${kind}" data-action="drill" data-kind="${kind}" data-value="${esc(t)}" title="Ver os ${n} contatos deste tema"><span class="rank-head"><span class="rank-title">${esc(t)}</span><span class="rank-number">${n} <small>${percent(n,denominator)}</small></span></span><span class="rank-track"><span class="rank-fill" style="width:${100*n/items[0][1]}%"></span></span></button>`).join('');
 }
 function renderMatrix(rows){
@@ -143,7 +146,7 @@ function renderMatrix(rows){
   }).join('')}<tr class="table-total"><td>Total</td>${OUTCOMES.map(c=>`<td>${count(rows,c.name)}</td>`).join('')}<td>${rows.length}</td></tr></tbody></table>`;
 }
 function renderProfile(rows){
-  const bad=rows.filter(r=>r.unfit),lost=bad.filter(r=>r.outcome==='Perdido').length;
+  const bad=rows.filter(r=>r.unfit),lost=bad.filter(isLost).length;
   $('profile-coverage').textContent=bad.length+' · '+percent(bad.length,rows.length)+' do recorte';
   $('profile-summary').innerHTML=`<strong>${bad.length} sem perfil</strong><span>${lost} com desfecho Perdido</span><span>${bad.length-lost} com outros desfechos</span><span>${rows.length-bad.length} sem falta de perfil confirmada</span>`;
   ranking('profile-reasons',rows,'profile');
@@ -198,7 +201,7 @@ function render(){
   ranking('top-objections',current,'objection',4);ranking('top-losses',current,'loss',4);
   renderMatrix(current);ranking('other-chart',current,'other');$('others-count').textContent=count(current,'Outro');
   ranking('objection-chart',current,'objection');$('objection-coverage').textContent=current.filter(r=>r.objections.length).length+' contatos com temas registrados';
-  ranking('loss-chart',current,'loss');ranking('loss-other-chart',current,'other');$('loss-coverage').textContent=count(current,'Perdido')+' perdas documentadas';
+  ranking('loss-chart',current,'loss');ranking('loss-other-chart',current,'other');$('loss-coverage').textContent=current.filter(isLost).length+' perdas documentadas';
   $('historical-note').hidden=!current.some(r=>r.id==='100072'&&r.outcome==='Perdido');
   renderContacts(current);
   renderProfile(current);

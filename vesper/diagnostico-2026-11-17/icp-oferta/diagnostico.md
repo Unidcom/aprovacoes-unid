@@ -42,15 +42,15 @@ Vale revisar a definição operacional do ICP e a apresentação da oferta, pres
 
 **Revisão proposta:** Preservar engenharia/confiança e mostrar dimensionamento, geração estimada, modelos, garantias aplicáveis, itens incluídos/excluídos e etapas de execução. Usar provas verificadas em anúncio, página e proposta.
 
-## Preço de entrada de R$15 mil diverge de negócios do histórico
+## O “a partir de R$15 mil” não representa todos os tickets
 
 **Cadastro:** Oferta Energia Solar: ‘A partir de R$15.000,00’um contato
 
-**Observado:** um contato recebeu fechamento excepcional de R$14.300 e aceitou. um contato recebeu condição de R$8.900 e assinou. São negócios históricos, com escopos e condições próprios.
+**Observado:** um contato recebeu fechamento excepcional de R$14.300 e aceitou. um contato recebeu condição de R$8.900 e assinou. São negócios históricos, com escopos e condições próprios. Em 19/11 a Heloísa informou que os R$15 mil são uma média e que há orçamentos saindo por cerca de R$95 mil (informação da cliente, ainda não conferida no CRM)um contato
 
-**Interpretação:** O preço cadastrado precisa ser conciliado com a política atual. Esses exemplos não provam um novo piso válido para toda oferta nem permitem avaliar margem.
+**Interpretação:** O cadastro descreve um ticket único, mas a base mistura projetos pequenos, de cerca de R$9 mil, com orçamentos de ticket muito maior. Isso sugere públicos diferentes (residencial de entrada e empresa ou propriedade de ticket alto) que a mesma mensagem e o mesmo ICP não atendem bem. Os exemplos de preço baixo não provam um novo piso.
 
-**Revisão proposta:** Confirmar o escopo representado pelos R$15 mil, os preços vigentes, exceções, custos e margem mínima. Só então manter, segmentar ou atualizar o ‘a partir de’um contato Não publicar R$8.900 como nova oferta sem validação.
+**Revisão proposta:** Diversificar o ICP em duas frentes, cada uma com qualificação, mensagem e prova próprias: entrada residencial (de cerca de R$9 mil a R$20 mil) e empresa ou propriedade de ticket alto (até cerca de R$95 mil)um contato Confirmar o escopo que os R$15 mil representam, os preços vigentes, exceções e margem mínima. Não publicar R$8.900 como nova oferta sem validação.
 
 ## A estimativa pode vir antes da visita em demandas aptas
 
@@ -61,16 +61,6 @@ Vale revisar a definição operacional do ICP e a apresentação da oferta, pres
 **Interpretação:** A visita continua importante para fechar o escopo técnico, mas pode ser um compromisso alto antes de a pessoa saber se o investimento cabe no planejamento.
 
 **Revisão proposta:** Organizar a entrada como avaliação inicial/estimativa responsável, com conta e informações do imóvel, seguida de validação técnica quando necessária. Informar claramente o caráter preliminar e não prometer gratuidade, prazo ou aprovação sem confirmação operacional.
-
-## Região e viabilidade precisam de critérios operacionais
-
-**Cadastro:** Local: Juiz de Fora e região. Porte inclui propriedades rurais.
-
-**Observado:** um contato quer 1.500 kWh para sítio e duas casas, mas a equipe recusa Eugenópolis por distância. Há recusa de atendimento em Minduri. Rural por si só não foi o critério de exclusão.
-
-**Interpretação:** Uma demanda de consumo relevante pode estar fora da operação. ‘Região’ é amplo demais para funcionar sozinho como filtro comercial.
-
-**Revisão proposta:** Validar uma matriz de cidades/condições atendidas, logística e suporte com a equipe. Perguntar a cidade da instalação, conexão existente e viabilidade do imóvel. Não excluir todo projeto rural ou toda cidade fora do raio de um anúncio.
 
 ## Economia e continuidade durante quedas são necessidades distintas
 

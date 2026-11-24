@@ -1,6 +1,6 @@
 # Aproveitamento, confiabilidade e retorno à cliente
 
-Revisão a partir dos feedbacks de Mirele e Heloísa · 17/11/2026
+Revisão a partir dos feedbacks de Mirele e Heloísa · 17/11/2026 · conciliação com HubSpot em 19/11/2026
 
 ## Base e critérios
 
@@ -9,7 +9,7 @@ Revisão a partir dos feedbacks de Mirele e Heloísa · 17/11/2026
 - **interaction:** Retorno com pelo menos três palavras e 18 caracteres úteis após mensagem da Vésper, desde o início do mês atribuído até o corte disponível. Saudações, respostas breves, links isolados, formulários e automações reconhecidas são excluídos. Indicador automatizado e conservador de conteúdo textual; não é detecção universal de bots, SLA humano ou qualificação comercial.
 - **milestones:** Mínimos identificados na revisão das análises de caso preservadas, com referências originais. Proposta inclui estimativa personalizada/dimensionamento; não comprova envio de PDF. Visita inclui somente realização relatada, não convite. um contato independentes no histórico: não formam um funil sequencial completo.
 - **fit:** 37 demandas sem perfil documentadas. As demais não estão automaticamente qualificadas. Ausência de informação não equivale a demanda compatível.
-- **limitations:** Áudios, imagens, PDFs e ligações não interpretados. Vínculos prováveis continuam identificados. Não há medição comparável de maturação nem cadastro bruto conciliado do HubSpot; não calcular conversão de cadastro bruto ou custo por qualificado a partir desta base.
+- **limitations:** Áudios, imagens, PDFs e ligações não interpretados. Vínculos prováveis continuam identificados. Desfechos Fechado e Perdido vêm do export do HubSpot (ver Confiança nos dados); negócios ativos e contatos sem negócio seguem a leitura da conversa. Não há medição comparável de maturação; não calcular conversão de cadastro bruto ou custo por qualificado a partir desta base.
 
 ## Resultados observáveis
 
