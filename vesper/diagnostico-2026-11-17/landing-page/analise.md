@@ -10,14 +10,6 @@ A vers?o m?vel pr?pria do Wix carregou sem transbordamento horizontal no teste. 
 
 ## Melhorias propostas
 
-### P0 ? Exigir cidade da instalação e consumo com opção de dúvida
-
-**Observado:** No DOM renderizado de desktop e celular, cidade e consumo têm required=false e aria-required=false. Nome, e-mail e telefone estão obrigatórios. Não houve envio do formulário nem teste da validação do servidor.
-
-**A??o:** Tornar cidade e faixa de consumo obrigatórias, mantendo uma opção orientada para quem não sabe a conta. Confirmar a validação do formulário completo no Wix e testar campos vazios antes de publicar.
-
-**Medir:** Cadastros com cidade/consumo utilizáveis, demandas fora da área e abandono do formulário.
-
 ### P1 ? Testar objetivo e momento com poucos campos adicionais
 
 **Observado:** A base geral tem demandas de off-grid, assinatura, suporte e equipamento avulso. Isso não prova que todas vieram desta landing page.
