@@ -27,7 +27,7 @@
     }
   }
 
-  /* Texto dinâmico do hero: "a sua Dental" → "o seu hospital" → ... */
+  /* Texto dinâmico do hero: "a sua dental" → "o seu hospital" → ... */
   /* Efeito de escrita: digita, pausa, apaga e digita a próxima */
   document.querySelectorAll('[data-rotator]').forEach(function (el) {
     var words = Array.prototype.map.call(el.querySelectorAll('span'), function (s) { return s.textContent.trim(); });

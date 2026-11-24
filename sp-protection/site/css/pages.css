@@ -150,11 +150,11 @@
 .compare tr:last-child td,.compare tr:last-child th{border-bottom:0}
 .compare .gsm{display:inline-block;font-family:var(--font-display);font-size:26px;color:var(--navy-900);text-transform:none;letter-spacing:0}
 .table-scroll{overflow-x:auto}
-.specs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);column-gap:28px;border-top:1px solid var(--line)}
 .spec{padding:18px 4px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
 .spec small{font:700 11.5px var(--font-accent);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .spec b{font-weight:600;font-size:15.5px}
-.spec:nth-child(odd){padding-right:20px}
+
 .docs{display:grid;gap:12px}
 .doc{display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:var(--r-md);background:#fff;border:1px solid var(--line)}
 .doc div{flex:1}
@@ -243,6 +243,7 @@ a.aside-box:hover{border-color:var(--cyan-500)}
   .tl-cards__track{grid-auto-columns:minmax(240px,calc((100% - 40px)/3))}
 }
 @media (max-width:900px){
+  .specs{grid-template-columns:1fr 1fr}
   .about-intro,.people,.interest,.contact-layout,.catalog-help,.feature,.newsletter-band,.article,.location{grid-template-columns:1fr}
   .chapter-grid,.intents{grid-template-columns:1fr}
   .values{grid-template-columns:repeat(2,minmax(0,1fr))}

@@ -184,7 +184,7 @@ h1 + .lead,h2 + .lead,.split h2{margin-top:0}
 .stat__label{color:var(--muted);font-size:14.5px;line-height:1.45}
 .stat--map{display:flex;flex-direction:column}
 .is-counting{font-variant-numeric:tabular-nums}
-.stat--map .brmap{position:absolute;right:-6px;bottom:-10px;width:128px;opacity:.95}
+.stat--map .brmap{position:absolute;right:6px;top:52px;width:118px;opacity:.95}
 .brmap path{fill:url(#brgrad);stroke:rgba(13,123,192,.35);stroke-width:.6}
 .brmap circle{fill:#fff;stroke:var(--blue-600);stroke-width:1}
 .on-dark .stat__value{color:#fff}
